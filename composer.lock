@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d1b07e9f84a8cffffb1a67d2e49ec01",
+    "content-hash": "fdfa131e0566856abf8172e84a760143",
     "packages": [
         {
             "name": "composer/installers",
@@ -104,7 +104,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2016-04-13T19:46:30+00:00"
         },
         {
             "name": "johnpbloch/wordpress",
@@ -141,7 +141,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2017-01-26 18:32:19"
+            "time": "2017-01-26T18:32:19+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -189,7 +189,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-06-11 15:15:30"
+            "time": "2015-06-11T15:15:30+00:00"
         },
         {
             "name": "oscarotero/env",
@@ -231,7 +231,52 @@
             "keywords": [
                 "env"
             ],
-            "time": "2016-05-08 17:14:32"
+            "time": "2016-05-08T17:14:32+00:00"
+        },
+        {
+            "name": "roots/soil",
+            "version": "3.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roots/soil.git",
+                "reference": "5b9b9d8a878b295f44b35cba826c462b20cc1d9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roots/soil/zipball/5b9b9d8a878b295f44b35cba826c462b20cc1d9c",
+                "reference": "5b9b9d8a878b295f44b35cba826c462b20cc1d9c",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^2.5.1"
+            },
+            "type": "wordpress-plugin",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Walkinshaw",
+                    "email": "scott.walkinshaw@gmail.com",
+                    "homepage": "https://github.com/swalkinshaw"
+                },
+                {
+                    "name": "Ben Word",
+                    "email": "ben@benword.com",
+                    "homepage": "https://github.com/retlehs"
+                }
+            ],
+            "description": "A WordPress plugin which contains a collection of modules to apply theme-agnostic front-end modifications",
+            "homepage": "https://roots.io/plugins/soil/",
+            "keywords": [
+                "wordpress"
+            ],
+            "time": "2016-08-30T18:15:45+00:00"
         },
         {
             "name": "roots/wp-password-bcrypt",
@@ -288,7 +333,7 @@
             "keywords": [
                 "wordpress wp bcrypt password"
             ],
-            "time": "2016-03-01 16:27:06"
+            "time": "2016-03-01T16:27:06+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -338,22 +383,22 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-09-01 10:05:43"
+            "time": "2016-09-01T10:05:43+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.7.1",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f"
+                "reference": "86dd55a522238211f9f3631e3361703578941d9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/9b324f3a1132459a7274a0ace2e1b766ba80930f",
-                "reference": "9b324f3a1132459a7274a0ace2e1b766ba80930f",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/86dd55a522238211f9f3631e3361703578941d9a",
+                "reference": "86dd55a522238211f9f3631e3361703578941d9a",
                 "shasum": ""
             },
             "require": {
@@ -418,7 +463,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-11-30 04:02:31"
+            "time": "2017-02-02T03:30:00+00:00"
         }
     ],
     "aliases": [],
