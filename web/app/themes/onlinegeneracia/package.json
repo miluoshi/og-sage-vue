@@ -63,6 +63,8 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "vue-loader": "^11.0.0",
+    "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.0",
     "webpack-assets-manifest": "^0.6.1",
     "webpack-dev-middleware": "^1.9.0",
@@ -71,6 +73,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
-    "jquery": "1.12.4 - 3"
+    "jquery": "1.12.4 - 3",
+    "vue": "^2.1.10"
   }
 }
