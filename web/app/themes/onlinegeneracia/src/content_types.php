@@ -44,6 +44,26 @@ add_action('acf/init', function() {
                 'append' => '',
                 'maxlength' => '',
             ], [
+                'key' => 'topic_description',
+                'label' => 'Popis',
+                'name' => 'description',
+                'type' => 'textarea',
+                'instructions' => '',
+                'new_lines' => 'br', // also 'wpautop' for paragraphs
+                'required' => 0,
+                'rows' => 5,
+                'conditional_logic' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ], [
                 'key' => 'topic_cover_photo',
                 'label' => 'Titulný obrázok',
                 'name' => 'cover_photo',
