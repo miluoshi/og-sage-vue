@@ -6,6 +6,9 @@
     ],
     "customizer": [
       "./scripts/customizer.js"
+    ],
+    "admin-area": [
+      "./styles/admin.scss"
     ]
   },
   "watch": [
