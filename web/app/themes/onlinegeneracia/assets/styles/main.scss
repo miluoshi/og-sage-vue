@@ -1,12 +1,13 @@
 @import "common/variables";
 
 // Import npm dependencies
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
+
+// Import our custom bootstrap components
+@import "common/bootstrap-custom";
 
 @import "common/global";
 @import "components/buttons";
-@import "components/comments";
-@import "components/forms";
 @import "components/wp-classes";
 @import "layouts/header";
 @import "layouts/sidebar";

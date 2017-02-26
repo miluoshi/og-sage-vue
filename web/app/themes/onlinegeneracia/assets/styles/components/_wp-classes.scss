@@ -18,6 +18,7 @@
   margin-bottom: ($spacer / 2);
   height: auto;
 }
+
 @include media-breakpoint-up(sm) {
   // Only float if not on an extra small device
   .alignleft {
@@ -31,7 +32,7 @@
 }
 
 // Captions
-.wp-caption {
+/*.wp-caption {
   @extend .figure;
 }
 .wp-caption img {
@@ -46,4 +47,4 @@
 .screen-reader-text {
   @extend .sr-only;
   @extend .sr-only-focusable;
-}
+}*/
