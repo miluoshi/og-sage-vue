@@ -1,12 +1,16 @@
 /** import external dependencies */
-import 'jquery';
-import 'bootstrap';
+ import 'jquery';
+// import 'bootstrap';
+// import 'bootstrap/js/src/util'
+// import 'bootstrap/js/src/scrollspy'
+
+// import Siema from 'siema/src/siema'
 
 /** import local dependencies */
-import Router from './util/Router';
-import common from './routes/common';
-import home from './routes/home';
-import aboutUs from './routes/about';
+import Router from './util/Router'
+import common from './routes/common'
+import home from './routes/home'
+import aboutUs from './routes/about'
 
 /**
  * Populate Router instance with DOM routes
@@ -20,6 +24,8 @@ const routes = new Router({
   /** About Us page, note the change from about-us to aboutUs. */
   aboutUs,
 });
+
+// new Siema({})
 
 /** Load Events */
 jQuery(document).ready(() => routes.loadEvents());

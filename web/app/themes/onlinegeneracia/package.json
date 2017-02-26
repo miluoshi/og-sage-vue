@@ -74,6 +74,7 @@
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "1.12.4 - 3",
+    "siema": "^1.2.0",
     "vue": "^2.1.10"
   }
 }
