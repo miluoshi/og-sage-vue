@@ -17,6 +17,11 @@ function default_template_data($data) {
         ])
     );
 
+    $data['footer_nenasli_ste_temu'] = [
+        'link' => get_field('footer_nenasli_ste_temu_link', 'option'),
+        'text' => get_field('footer_nenasli_ste_temu_text', 'option'),
+    ];
+
     return $data;
 }
 
