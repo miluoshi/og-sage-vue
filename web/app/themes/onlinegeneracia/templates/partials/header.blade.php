@@ -19,7 +19,9 @@
     <a class="brand" href="{{ home_url('/') }}">{{ get_bloginfo('name', 'display') }}</a>
   </div>
 
-  <div class="social-icons">
-
-  </div>
+  <nav class="nav-social-icons">
+    @if (has_nav_menu('social_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'social_navigation', 'menu_class' => 'nav']) !!}
+    @endif
+  </nav>
 </header>
