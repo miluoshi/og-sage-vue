@@ -36,6 +36,15 @@ add_action('after_setup_theme', function () {
     // Google Analytics (more info: https://github.com/roots/soil/wiki/Google-Analytics)
     // add_theme_support('soil-google-analytics', 'UA-XXXXX-Y');
 
+    // More info: https://developer.wordpress.org/themes/functionality/custom-logo/
+    // https://codex.wordpress.org/Theme_Logo
+    add_theme_support('custom-logo' /*, [
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+    ]*/);
 
     /**
      * Enable plugins to manage the document title
