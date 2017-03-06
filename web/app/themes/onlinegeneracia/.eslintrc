@@ -39,6 +39,6 @@
       "exports": "always-multiline",
       "functions": "ignore"
     }],
-    "no-console": "off"
+    "no-console": "warn"
   }
 }
