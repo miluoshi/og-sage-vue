@@ -20,4 +20,4 @@ vendor/*
 !vendor/.gitkeep
 
 # My custom folder
-assets
+assets/*
