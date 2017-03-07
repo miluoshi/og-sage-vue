@@ -5,6 +5,7 @@
 
 // Import our custom bootstrap components
 @import "common/bootstrap-custom";
+@import "common/font-awesome-custom";
 @import "../fontello/styles/fontello.css";
 @import "common/global";
 @import "components/buttons";
@@ -14,4 +15,5 @@
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
+@import "layouts/index-page";
 @import "layouts/tinymce";

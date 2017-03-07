@@ -1,0 +1,8 @@
+.nav-social-icons ul {
+  @extend %fa-ul;
+}
+
+.icon-twitter,
+.icon-facebook {
+  @extend %fa-li;
+}
