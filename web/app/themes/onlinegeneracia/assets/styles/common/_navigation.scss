@@ -1,0 +1,131 @@
+#navigation-toggle {
+  position: absolute;
+  -webkit-appearance: none;
+  cursor: pointer;
+  left: -100%;
+  top: -100%;
+}
+
+label[for="navigation-toggle"] {
+  float: left;
+  margin: .75rem 0;
+}
+
+label.navigation-toggle-open {
+  transition: all 350ms ease;
+  cursor: pointer;
+  width: 18px;
+  height: 14px;
+}
+
+label.navigation-toggle-open {
+  span, span:before, span:after {
+    border-radius: 1px;
+    height: 2px;
+    width: 18px;
+    background-color: $header-link-color;
+    position: absolute;
+    display: block;
+    content: '';
+  }
+
+  span:before {
+    top: 6px;
+  }
+
+  span:after {
+    top: 12px;
+  }
+}
+
+label.navigation-toggle-close {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  position: relative;
+
+  span:before, span:after {
+    position: absolute;
+    left: 8px;
+    top: -3px;
+    content: '';
+    height: 24px;
+    width: 2px;
+    background-color: $header-link-color;
+  }
+
+  span:before { transform: rotate(45deg); }
+  span:after { transform: rotate(-45deg); }
+}
+
+.nav {
+  list-style-type: none;
+  padding-left: 0;
+  text-align: left;
+}
+
+.nav-primary {
+  width: 100%;
+  height: 100%;
+  background-color: $header-bg;
+  transition: all 350ms ease;
+  position: absolute;
+  left: 0;
+  top: -100%;
+  z-index: 10;
+  text-transform: uppercase;
+
+  #navigation-toggle:checked ~ & {
+    top: 0 !important;
+  }
+
+  .nav-header { overflow: auto; }
+
+  .missing-topic-banner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+header .nav-social-icons {
+  float: right;
+  padding: .35rem 0;
+
+  ul {
+    overflow: auto;
+    margin-bottom: 0;
+  }
+
+  li {
+    float: left;
+  }
+
+  li + li {
+    margin-left: $spacer-x*0.8;
+  }
+}
+
+#menu-main-navigation {
+  clear: both;
+  margin: $spacer-y 0;
+  font-size: $font-size-sm;
+
+  li {
+    margin: $spacer-y/2 0;
+  }
+}
+
+ul.navigation-topics {
+  font-weight: bold;
+  font-size: $font-size-lg;
+  font-family: $font-family-headers;
+
+  li {
+    margin: $spacer-y/2 0;
+  }
+}
+
+footer .nav-social-icons {
+
+}

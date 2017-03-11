@@ -70,9 +70,9 @@ add_action('acf/init', function() {
     ]);
 });
 
-/**
- * Register custom taxonomy 'topic'
- */
+//
+// Register custom taxonomy 'topic'
+//
 add_action('init', function () {
     register_taxonomy('topic', 'post', [
         'label' => 'Témy',

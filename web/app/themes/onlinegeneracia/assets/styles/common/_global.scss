@@ -1,8 +1,33 @@
-.nav-social-icons ul {
-  @extend %fa-ul;
+html { height: 100%; }
+body { min-height: 100%; }
+
+.site-logo {
+  display: inline-block;
+
+  img {
+    width: 75px;
+    height: auto;
+  }
 }
 
-.icon-twitter,
-.icon-facebook {
-  @extend %fa-li;
+hr {
+  width: 2.5rem;
+  height: 3px;
+  border: 0;
+  background-color: $brand-yellow;
+  clear: both;
+  margin: $spacer-y*1.5 0;
+}
+
+.missing-topic-banner {
+  @include make-container();
+  display: block;
+  background-color: $brand-yellow;
+  padding-top: $spacer-y;
+  padding-bottom: $spacer-y;
+  font-size: $font-size-sm;
+  text-align: center;
+  text-transform: uppercase;
+
+  &, &:hover {color: $black;}
 }
