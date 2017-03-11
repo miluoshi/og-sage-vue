@@ -1,3 +1,5 @@
+import WebFont from 'webfontloader'
+
 function setBodyClass($body, className, sizeFrom, sizeTo) {
   const width = $(window).width()
 
@@ -7,10 +9,11 @@ function setBodyClass($body, className, sizeFrom, sizeTo) {
   }
 }
 
+
 export default {
   init() {
     // JavaScript to be fired on all pages
-    var $body = $('body')
+    let $body = $('body')
 
     // Switch body classes depending on screen size
     $(window).on('resize ready', () => {
@@ -18,6 +21,18 @@ export default {
       setBodyClass($body, 'device-medium', 768, 1024)
       setBodyClass($body, 'device-large', 1024, 99999)
     })
+
+
+    $(window).on('load', () => {
+      // Load google font
+      WebFont.load({google: {families: [
+        'PT Serif:400,400i',
+        'Lato:400,400i,700,900',
+        'Roboto+Condensed:400,700',
+      ]}});
+    })
+
+
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
