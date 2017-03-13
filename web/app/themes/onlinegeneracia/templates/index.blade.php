@@ -6,7 +6,8 @@
   @if ($topics_cards)
     <div class="topics-index-carousel">
       @foreach ($topics_cards as $topic)
-          <div class="topic-card"
+          <a class="topic-card"
+            href="{{ $topic->url }}"
             style="background-image: url('{{ $topic->cover_photo['sizes']['medium_large'] }}');"
           >
             <div class="topic-index-wrap">
@@ -14,8 +15,11 @@
               <span class="topic-index-slash">/</span>
               <span class="topic-index">{{$topic->index }}</span>
             </div>
-            {{$topic->name}}
-          </div>
+
+            <h2 class="topic-name">
+              {{ $topic->name }}
+            </h2>
+          </a>
       @endforeach
     </div>
   @endif
