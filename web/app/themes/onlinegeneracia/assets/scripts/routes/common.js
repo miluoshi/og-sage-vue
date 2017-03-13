@@ -22,14 +22,17 @@ export default {
       setBodyClass($body, 'device-large', 1024, 99999)
     })
 
-
     $(window).on('load', () => {
       // Load google font
       WebFont.load({google: {families: [
         'PT Serif:400,400i',
         'Lato:400,400i,700,900',
         'Roboto+Condensed:400,700',
-      ]}});
+      ]}})
+
+      // Init navigation position above visible area
+      let $nav = $('.nav-primary')
+      $nav.css('top', - $nav.outerHeight())
     })
 
 
