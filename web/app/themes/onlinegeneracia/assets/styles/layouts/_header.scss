@@ -14,4 +14,6 @@ header {
 
     &:hover {color: $header-link-color;}
   }
+
+  .site-logo { height: $logo-height; }
 }

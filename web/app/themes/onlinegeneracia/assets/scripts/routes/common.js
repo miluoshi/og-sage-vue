@@ -16,7 +16,7 @@ export default {
     let $body = $('body')
 
     // Switch body classes depending on screen size
-    $(window).on('resize ready', () => {
+    $(window).on('resize load', () => {
       setBodyClass($body, 'device-small', 0, 768)
       setBodyClass($body, 'device-medium', 768, 1024)
       setBodyClass($body, 'device-large', 1024, 99999)
@@ -32,7 +32,7 @@ export default {
 
       // Init navigation position above visible area
       let $nav = $('.nav-primary')
-      $nav.css('top', - $nav.outerHeight())
+      $nav.css('top', - $nav.outerHeight() - 1)
     })
 
 
