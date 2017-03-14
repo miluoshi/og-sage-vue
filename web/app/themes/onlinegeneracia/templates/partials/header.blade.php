@@ -31,22 +31,6 @@
                 </a>
               </li>
             @endforeach
-
-            @foreach ($topics as $topic)
-              <li>
-                <a href="{!! get_term_link($topic->slug, 'topic') !!}">
-                  {{ $topic->name }}
-                </a>
-              </li>
-            @endforeach
-
-            @foreach ($topics as $topic)
-              <li>
-                <a href="{!! get_term_link($topic->slug, 'topic') !!}">
-                  {{ $topic->name }}
-                </a>
-              </li>
-            @endforeach
           </ul>
         @endif
       </div>
