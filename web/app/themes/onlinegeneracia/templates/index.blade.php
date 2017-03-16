@@ -13,7 +13,7 @@
             <div class="topic-index-wrap">
               <span class="topics-length">{{ sizeof($topics) }}</span>
               <span class="topic-index-slash">/</span>
-              <span class="topic-index">{{$topic->index }}</span>
+              <span class="topic-index">@php(printf('%02d', $topic->index))</span>
             </div>
 
             <h2 class="topic-name">
