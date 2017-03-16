@@ -5,14 +5,7 @@ body.home {
   }
 
   .page-container {
-    position: fixed;
-    top: $header-height;
-    width: 100%;
-    height: calc(100% - #{$header-height + $footer-height});
-    overflow: auto;
-  }
-
-  .topics-index-carousel {
+    margin-top: $header-height;
   }
 
   .topic-card {
@@ -72,14 +65,9 @@ body.home {
       width: 15rem;
       margin-bottom: 0;
       text-transform: uppercase;
+      font-family: $font-family-sans-condensed;
       font-size: $font-size-lg;
       font-weight: 900;
     }
-  }
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
   }
 }
