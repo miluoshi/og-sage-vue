@@ -25,8 +25,8 @@ export default {
     $(window).on('load', () => {
       // Load google font
       WebFont.load({google: {families: [
-        'PT Serif:400,400i',
-        'Lato:400,400i,700,900',
+        'PT+Serif:400,400i',
+        'Roboto:400,400i,700,900',
         'Roboto+Condensed:400,700',
       ]}})
 
