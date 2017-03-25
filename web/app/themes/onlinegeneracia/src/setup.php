@@ -46,6 +46,26 @@ add_action('after_setup_theme', function () {
         'header-text' => array( 'site-title', 'site-description' ),
     ]*/);
 
+    // Add custom image size for progressive loading
+    add_image_size('placeholder', 50);
+
+    if (get_option('thumbnail_size_w') != 360) {
+        update_option('thumbnail_size_w', 360);
+        update_option('thumbnail_size_h', 360);
+    }
+    if (get_option('medium_size_w') != 768) {
+        update_option('medium_size_w', 768);
+        update_option('medium_size_h', 768);
+    }
+    if (get_option('medium_large_size_w') != 1024) {
+        update_option('medium_large_size_w', 1024);
+        update_option('medium_large_size_h', 1024);
+    }
+    if (get_option('large_size_w') != 1440) {
+        update_option('large_size_w', 1440);
+        update_option('large_size_h', 1440);
+    }
+
     /**
      * Enable plugins to manage the document title
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#title-tag
