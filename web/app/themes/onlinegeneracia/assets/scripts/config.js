@@ -1,15 +1,14 @@
-export const breakpoints = [
-  {
-    className: 'device-small',
+export const breakpoints = {
+  'device-small': {
     from: 0,
     to: 767,
-  }, {
-    className: 'device-medium',
+  },
+  'device-medium': {
     from: 768,
     to: 1023,
-  }, {
-    className: 'device-large',
+  },
+  'device-large': {
     from: 1024,
     to: 9999,
   },
-]
+}

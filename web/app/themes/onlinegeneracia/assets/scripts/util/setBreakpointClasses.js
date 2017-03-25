@@ -1,9 +1,9 @@
 import $ from 'jquery'
 import { breakpoints } from '../config'
 
-function setDeviceSizeClass($element, breakpointConfig) {
+function setDeviceSizeClass($element, className, breakpointConfig) {
   const width = $(window).width()
-  const {className, from, to} = breakpointConfig
+  const {from, to} = breakpointConfig
 
   if (
     width >= from
@@ -17,7 +17,8 @@ function setDeviceSizeClass($element, breakpointConfig) {
 
 export default function($element) {
   // Switch body classes depending on screen size
-  breakpoints.forEach(breakpoint => {
-    setDeviceSizeClass($element, breakpoint)
+  Object.keys(breakpoints).forEach(className => {
+    let breakpoint = breakpoints[className]
+    setDeviceSizeClass($element, className, breakpoint)
   })
 }
