@@ -4,16 +4,10 @@
   {{-- @include('partials.page-header') --}}
 
   @if ($topics_cards)
+    @include('helpers.topic-image-styles')
+
     <div class="topics-index-carousel">
       @foreach ($topics_cards as $topic)
-        {{-- Load topic cover image for each topic on small device inside CSS styles --}}
-        <style>
-          @media screen and (max-width: 767px) {
-            .topics-index-carousel .topic-{{ $topic->index }} {
-              background-image: url("{{ $topic->cover_photo['sizes']['medium_large'] }}");
-            }
-          }
-        </style>
 
         <a class="topic-card topic-{{ $topic->index }}"
           href="{{ $topic->url }}"
