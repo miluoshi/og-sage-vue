@@ -14,7 +14,7 @@ function destroyCarousel(carouselObj) {
 }
 
 export default () => {
-  $(window).on('ready resize', () => {
+  $(window).on('load resize', () => {
     if ($body.hasClass('device-small')) {
       carousel && destroyCarousel(carousel)
       carousel = undefined

@@ -11,10 +11,11 @@
 
         <a class="topic-card topic-{{ $topic->index }}"
           href="{{ $topic->url }}"
-          data-img-placeholder="{{ $topic->cover_photo['sizes']['placeholder'] }}"
-          data-img-small="{{ $topic->cover_photo['sizes']['medium_large'] }}"
-          data-img-medium="{{ $topic->cover_photo['sizes']['large'] }}"
-          data-img-large="{{ $topic->cover_photo['url'] }}"
+          data-img-placeholder="{{ $topic->placeholder_uri }}"
+          data-img-small="{{ $topic->cover_photo['sizes']['medium'] }}"
+          data-img-medium="{{ $topic->cover_photo['sizes']['medium_large'] }}"
+          data-img-large="{{ $topic->cover_photo['sizes']['large'] }}"
+          data-img-original="{{ $topic->cover_photo['url'] }}"
         >
           <div class="topic-index-wrap">
             <span class="topics-length">{{ sizeof($topics) }}</span>
