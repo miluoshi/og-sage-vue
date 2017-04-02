@@ -11,7 +11,7 @@ export default {
     initTopicCards()
 
     $(window).on('load', () => {
-      let isLargerDevice = $(window).width() > breakpoints['device-medium'].from
+      let isLargerDevice = $(window).width() >= breakpoints['device-medium'].from
 
       if (isLargerDevice) {
         let firstCard = document.querySelectorAll('.topic-card')[0]
@@ -20,6 +20,12 @@ export default {
       } else {
         document.body.style.backgroundImage = 'none'
       }
+    })
+
+    document.querySelectorAll('.topic-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        loadTopicCover(this)
+      })
     })
   },
   finalize() {

@@ -50,6 +50,8 @@ function home_page_data($data) {
         ];
     }
 
+    $data['image_sizes'] = ['small', 'medium', 'large', 'original'];
+
     return $data;
 }
 

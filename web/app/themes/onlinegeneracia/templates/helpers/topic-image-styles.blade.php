@@ -7,7 +7,7 @@
       }
     }
 
-    /* Retina */
+    /* Retina phone */
     @media
       only screen and (-webkit-min-device-pixel-ratio: 2) and ( max-width: 767px),
       only screen and (   min--moz-device-pixel-ratio: 2) and ( max-width: 767px),
@@ -20,5 +20,21 @@
         background-image: url("{{ $topic->cover_photo['sizes']['medium_large'] }}");
       }
     }
+
+    body.is-topic-card-{{ $topic->index }}-loading:before {
+      background-image: url("{{ $topic->placeholder_uri }}");
+    }
+
+    @foreach ($image_sizes as $size)
+      body.is-topic-card-{{ $topic->index }}-{{ $size }}-loaded:after {
+        background-image: url("{{ $topic->cover_photo['sizes']['medium'] }}");
+        opacity: 1;
+      }
+
+      body.is-topic-card-{{ $topic->index }}-{{ $size }}-loaded.topic-faded-out:after {
+        opacity: 0;
+      }
+    @endforeach
+
   @endforeach
 </style>
