@@ -1,24 +1,24 @@
-import $ from 'jquery'
 import { breakpoints } from '../config'
+import {addClass, removeClass, hasClass} from './classNames'
 
-function setDeviceSizeClass($element, className, breakpointConfig) {
-  const width = $(window).width()
+function setDeviceSizeClass(element, className, breakpointConfig) {
+  const width = window.innerWidth
   const {from, to} = breakpointConfig
 
   if (
     width >= from
     && width < to
-    && !$element.hasClass(className)
+    && !hasClass(element, className)
   ) {
-      $element.removeClass('device-small device-medium device-large')
-      $element.addClass(className)
+      removeClass(element, 'device-small device-medium device-large')
+      addClass(element, className)
   }
 }
 
-export default function($element) {
+export default function(element) {
   // Switch body classes depending on screen size
   Object.keys(breakpoints).forEach(className => {
     let breakpoint = breakpoints[className]
-    setDeviceSizeClass($element, className, breakpoint)
+    setDeviceSizeClass(element, className, breakpoint)
   })
 }

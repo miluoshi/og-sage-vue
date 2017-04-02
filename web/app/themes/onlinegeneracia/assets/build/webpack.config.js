@@ -119,10 +119,10 @@ let webpackConfig = {
   },
   resolveLoader: {
     moduleExtensions: ['-loader'],
-  },
+  },/*
   externals: {
     jquery: 'jQuery',
-  },
+  },*/
   plugins: [
     new CleanPlugin([config.paths.dist], {
       root: config.paths.root,
@@ -144,9 +144,9 @@ let webpackConfig = {
       disable: (config.enabled.watcher),
     }),
     new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
+      // $: 'jquery',
+      // jQuery: 'jquery',
+      // 'window.jQuery': 'jquery',
       Tether: 'tether',
       'window.Tether': 'tether',
     }),

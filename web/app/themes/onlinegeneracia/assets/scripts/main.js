@@ -1,5 +1,4 @@
 /** import external dependencies */
- import 'jquery';
 // import 'bootstrap';
 // import 'bootstrap/js/src/util'
 // import 'bootstrap/js/src/scrollspy'
@@ -11,6 +10,7 @@ import Router from './util/Router'
 import common from './routes/common'
 import home from './routes/home'
 import aboutUs from './routes/about'
+import documentReady from './util/documentReady'
 
 /**
  * Populate Router instance with DOM routes
@@ -28,4 +28,5 @@ const routes = new Router({
 // new Siema({})
 
 /** Load Events */
-jQuery(document).ready(() => routes.loadEvents());
+
+documentReady(() => routes.loadEvents())

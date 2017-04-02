@@ -1,6 +1,6 @@
-import $ from 'jquery'
-import {debounce} from 'lodash'
+import debounce from 'lodash/debounce'
 import isRetina from './isRetina'
+import {addClass, removeClass, hasClass} from './classNames'
 
 function getAllClassNames() {
   const sizes = ['small', 'medium', 'large', 'original']
@@ -16,13 +16,13 @@ function getAllClassNames() {
 }
 
 function setLoaded(topicIndex, size) {
-  $('body').addClass(`is-topic-card-${topicIndex}-${size}-loaded`)
-  $('body').removeClass(`topic-faded-out`)
+  addClass(document.body, `is-topic-card-${topicIndex}-${size}-loaded`)
+  removeClass(document.body, `topic-faded-out`)
 }
 
 export default function loadTopicCover(element) {
   let img = new Image()
-  const width = $(window).width()
+  const width = window.innerWidth
   const imageUrl = {
     small: element.getAttribute('data-img-small'),
     medium: element.getAttribute('data-img-medium'),
@@ -43,13 +43,13 @@ export default function loadTopicCover(element) {
     || shouldLoad.large && 'large'
     || 'original'
 
-  const isAlreadyLoaded = $('body').hasClass(`is-topic-card-${topicIndex}-${size}-loaded`)
+  const isAlreadyLoaded = hasClass(document.body, `is-topic-card-${topicIndex}-${size}-loaded`)
 
   if (!isAlreadyLoaded) {
     // Remove all previous class names
-    $('body').removeClass(getAllClassNames())
+    removeClass(document.body, getAllClassNames())
 
-    $('body').addClass(`is-topic-card-${topicIndex}-loading topic-faded-out`)
+    addClass(document.body, `is-topic-card-${topicIndex}-loading topic-faded-out`)
 
     img.onload = debounce(() => {
       // setTimeout(() => {

@@ -1,31 +1,34 @@
-import $ from 'jquery'
 import Siema from 'siema'
+import {hasClass} from './classNames'
+import unwrap from './unwrap'
 
 let carousel
-const $body = $('body')
 const carouselSelector = '.topics-index-carousel'
 
 function destroyCarousel(carouselObj) {
   carouselObj.destroy()
 
   // Removes 2 levels of parents - the DOM created by Siema plugin
-  $('.topic-card').unwrap()
-  $('.topic-card:first').unwrap()
+  document.querySelectorAll('.topic-card').forEach((card) => unwrap(card))
+  unwrap(document.querySelectorAll('.topic-card')[0])
+}
+
+function initSiema() {
+  if (hasClass(document.body, 'device-small')) {
+    carousel && destroyCarousel(carousel)
+    carousel = undefined
+  } else if (!carousel) {
+    carousel = new Siema({
+      selector: carouselSelector,
+      duration: 350,
+      perPage: {
+          768: 3,
+      },
+    })
+  }
 }
 
 export default () => {
-  $(window).on('load resize', () => {
-    if ($body.hasClass('device-small')) {
-      carousel && destroyCarousel(carousel)
-      carousel = undefined
-    } else if (!carousel) {
-      carousel = new Siema({
-        selector: carouselSelector,
-        duration: 350,
-        perPage: {
-            768: 3,
-        },
-      })
-    }
-  })
+  window.addEventListener('load', initSiema)
+  window.addEventListener('resize', initSiema)
 }

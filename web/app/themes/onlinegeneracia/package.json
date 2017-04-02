@@ -18,7 +18,7 @@
     }
   ],
   "scripts": {
-    "build": "webpack --progress --config assets/build/webpack.config.js",
+    "build": "webpack --progress --display-modules --config assets/build/webpack.config.js",
     "build:production": "webpack --progress -p --config assets/build/webpack.config.js",
     "build:profile": "webpack --progress --profile --json --config assets/build/webpack.config.js",
     "fontello": "fontello-cli install --config fontello-config.json --font assets/fontello/font --css assets/fontello/styles",
