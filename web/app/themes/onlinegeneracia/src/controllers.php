@@ -70,7 +70,22 @@ function getBlurredPlaceholderUri($placeholderPath, $width, $height) {
     $imageData = base64_encode(file_get_contents($placeholderPath));
     $imageUri = 'data: ' . mime_content_type($placeholderPath).';base64,' . $imageData;
 
-    $svg = '<svg xmlns="http://www.w3.org/2000/svg"
+    $toBeEncodedChars = str_split("\"#<>[]^{|}\n");
+    $encodedChars = [
+        '%22',
+        '%23',
+        '%3C',
+        '%3E',
+        '%5B',
+        '%5D',
+        '%5E',
+        '%7B',
+        '%7C',
+        '%7D',
+        '%0A',
+    ];
+
+    $svg_part_1 = '<svg xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         width="'. $width .'" height="'. $height .'"
         viewBox="0 0 '. $width .' '. $height .'">
@@ -81,12 +96,12 @@ function getBlurredPlaceholderUri($placeholderPath, $width, $height) {
         </feComponentTransfer>
     </filter>
     <image filter="url(#blur)"
-            xlink:href="' . $imageUri . '"
-            x="0" y="0"
-            height="100%" width="100%"/>
-    </svg>';
+            xlink:href="';
+    $svg_part_2 = '" x="0" y="0" height="100%" width="100%"/></svg>';
 
-    $svgData = base64_encode($svg);
+    $svgData = str_replace($toBeEncodedChars, $encodedChars, $svg_part_1)
+        . $imageUri
+        . str_replace($toBeEncodedChars, $encodedChars, $svg_part_2);
 
-    return 'data:image/svg+xml;base64,' . $svgData;
+    return 'data:image/svg+xml;charset=utf-8,' . $svgData;
 }

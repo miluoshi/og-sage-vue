@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import _ from 'lodash'
+import {debounce} from 'lodash'
 import isRetina from './isRetina'
 
 function getAllClassNames() {
@@ -51,11 +51,11 @@ export default function loadTopicCover(element) {
 
     $('body').addClass(`is-topic-card-${topicIndex}-loading topic-faded-out`)
 
-    img.onload = _.debounce(() => {
+    img.onload = debounce(() => {
       // setTimeout(() => {
       setLoaded(topicIndex, size)
       // }, 1000)
-    }, 500)
+    }, 800)
 
     img.src = imageUrl[size]
   }
