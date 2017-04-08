@@ -9,7 +9,6 @@
 
       <div class="topics-index-carousel">
         @foreach ($topics_cards as $topic)
-
           <a class="topic-card topic-{{ $topic->index }}"
             href="{{ $topic->url }}"
             data-index="{{ $topic->index }}"
