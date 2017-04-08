@@ -1,5 +1,10 @@
 html { height: 100%; }
-body { min-height: 100%; }
+
+body {
+  @include media-breakpoint-down(sm) {
+    min-height: 100%;
+  }
+}
 
 ul {
   margin-bottom: 0;
@@ -21,19 +26,4 @@ hr {
   background-color: $brand-yellow;
   clear: both;
   margin: $spacer-y*1.5 0;
-}
-
-.missing-topic-banner {
-  @include make-container();
-  display: block;
-  background-color: $brand-yellow;
-  padding-top: $spacer-y;
-  padding-bottom: $spacer-y;
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
-  font-size: $font-size-footer;
-  text-align: center;
-  text-transform: uppercase;
-
-  &, &:hover {color: $black;}
 }
