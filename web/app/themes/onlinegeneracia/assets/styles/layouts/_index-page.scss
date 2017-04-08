@@ -91,6 +91,7 @@ body.home {
   }
 
   @include media-breakpoint-up(md) {
+    // body
     &:before,
     &:after {
       content: '';
@@ -119,10 +120,38 @@ body.home {
       @include make-container();
     }
 
+    .btn-carousel-prev,
+    .btn-carousel-next {
+      $size: $grid-gutter-width-large/2;
+      display: block;
+      position: absolute;
+      width: $size;
+      height: $size;
+      top: 50%;
+      margin-top: -$size/2;
+      background-color: $brand-yellow;
+      line-height: $size;
+      text-align: center;
+      font-size: $size/2;
+      cursor: pointer;
+      transition: opacity .2s ease-in-out;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+    .btn-carousel-prev {
+      left: 0;
+    }
+    .btn-carousel-next {
+      right: 0;
+    }
+
     // .topic-card wrapped inside divs created by siema
     .topics-index-carousel {
       & > div,
-      & > div > div {
+      & > div > div,
+      .topic-card {
         height: 100%;
       }
 
@@ -146,4 +175,9 @@ body.home {
     }
 
   }
+}
+
+.btn-carousel-prev,
+.btn-carousel-next {
+  display: none;
 }

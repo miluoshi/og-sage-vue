@@ -17,6 +17,18 @@
       "css": "twitter",
       "code": 61593,
       "src": "fontawesome"
+    },
+    {
+      "uid": "877a233d7fdca8a1d82615b96ed0d7a2",
+      "css": "right",
+      "code": 59393,
+      "src": "typicons"
+    },
+    {
+      "uid": "58b78b6ca784d5c3db5beefcd9e18061",
+      "css": "left",
+      "code": 59392,
+      "src": "typicons"
     }
   ]
 }

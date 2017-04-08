@@ -1,9 +1,10 @@
 import Siema from 'siema'
-import {hasClass} from './classNames'
+import {hasClass, addClass} from './classNames'
 import unwrap from './unwrap'
 
 let carousel
 const carouselSelector = '.topics-index-carousel'
+const cardsPerPage = 3
 
 function destroyCarousel(carouselObj) {
   carouselObj.destroy()
@@ -13,6 +14,26 @@ function destroyCarousel(carouselObj) {
   unwrap(document.querySelectorAll('.topic-card')[0])
 }
 
+function insertArrowButtons(carousel) {
+  const mainContainer = document.querySelector('main > .container')
+  let fragment = document.createDocumentFragment()
+  let prevButton = fragment.appendChild(document.createElement('a'))
+  let nextButton = fragment.appendChild(document.createElement('a'))
+
+  addClass(prevButton, 'btn-carousel-prev icon-left')
+  addClass(nextButton, 'btn-carousel-next icon-right')
+
+  prevButton.addEventListener('click', () => {
+    carousel.prev(cardsPerPage)
+  })
+
+  nextButton.addEventListener('click', () => {
+    carousel.next(cardsPerPage)
+  })
+
+  mainContainer.appendChild(fragment)
+}
+
 function initSiema() {
   if (hasClass(document.body, 'device-small')) {
     carousel && destroyCarousel(carousel)
@@ -20,11 +41,15 @@ function initSiema() {
   } else if (!carousel) {
     carousel = new Siema({
       selector: carouselSelector,
-      duration: 350,
+      draggable: false,
+      duration: 250,
+      loop: true,
       perPage: {
-          768: 3,
+          767: cardsPerPage,
       },
     })
+
+    insertArrowButtons(carousel)
   }
 }
 
