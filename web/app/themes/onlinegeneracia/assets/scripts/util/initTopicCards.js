@@ -15,10 +15,14 @@ function init() {
   }
   // or to maximum height on tablet/desktop
   else {
+    let topicCards = document.querySelectorAll('.topic-card')
     let carousel = document.querySelector('.topics-index-carousel')
     const footerHeight = document.querySelector('footer').offsetHeight
 
     carousel.style.height = (visibleAreaHeight - footerHeight) + 'px'
+    topicCards.forEach(card => {
+      card.style.height = 'inherit'
+    })
   }
 }
 
