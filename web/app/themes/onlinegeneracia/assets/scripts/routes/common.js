@@ -3,8 +3,8 @@ import setBreakpointClasses from '../util/setBreakpointClasses'
 
 function initPage() {
   // Init navigation position above visible area
-  let nav = document.querySelectorAll('.nav-primary')[0]
-  nav.style.top = - nav.offsetHeight - 1
+  let nav = document.querySelector('.nav-primary')
+  nav.style.top = - (nav.offsetHeight - 1) + 'px'
 
   setBreakpointClasses(document.body)
 }
@@ -23,9 +23,7 @@ export default {
       initPage()
     })
 
-    window.addEventListener('resize', () => {
-      initPage()
-    })
+    window.addEventListener('resize', initPage)
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
