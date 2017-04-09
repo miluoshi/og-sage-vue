@@ -105,9 +105,13 @@ $font-size-sm:   .875rem;
 $font-size-xs:   .75rem;
 $font-size-footer: $font-size-sm;
 
+$font-size-h1: 2.25rem;
+
 // Custom variables
 $logo-height: 2.3125rem; // 37px
 $header-height: $logo-height + 2*$spacer;
 
 $footer-sm-height: $font-size-footer*$line-height-base + 2*$spacer-y;
 $footer-lg-height: 80px;
+
+$transition-time: .35s;

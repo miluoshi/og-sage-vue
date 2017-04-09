@@ -25,9 +25,21 @@
               <span class="topic-index">@php(printf('%02d', $topic->index))</span>
             </div>
 
-            <h2 class="topic-name">
-              {{ $topic->name }}
-            </h2>
+            <div class="topic-info">
+              <div class="caption">
+                <hr />
+                <h2 class="topic-name">
+                  {{ $topic->name }}
+                </h2>
+
+                <p class="topic-description">
+                  {{ $topic->description }}
+                </p>
+              </div>
+              <div class="know-more-banner">
+                Chcem vedieť viac o téme
+              </div>
+            </div>
           </a>
         @endforeach
       </div>
