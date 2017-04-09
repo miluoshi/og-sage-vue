@@ -15,23 +15,25 @@ function destroyCarousel(carouselObj) {
 }
 
 function insertArrowButtons(carousel) {
-  const mainContainer = document.querySelector('main > .container')
-  let fragment = document.createDocumentFragment()
-  let prevButton = fragment.appendChild(document.createElement('a'))
-  let nextButton = fragment.appendChild(document.createElement('a'))
+  if (! document.querySelector('.btn-carousel-prev')) {
+    const mainContainer = document.querySelector('main > .container')
+    let fragment = document.createDocumentFragment()
+    let prevButton = fragment.appendChild(document.createElement('a'))
+    let nextButton = fragment.appendChild(document.createElement('a'))
 
-  addClass(prevButton, 'btn-carousel-prev icon-left')
-  addClass(nextButton, 'btn-carousel-next icon-right')
+    addClass(prevButton, 'btn-carousel-prev icon-left')
+    addClass(nextButton, 'btn-carousel-next icon-right')
 
-  prevButton.addEventListener('click', () => {
-    carousel.prev(cardsPerPage)
-  })
+    prevButton.addEventListener('click', () => {
+      carousel.prev(cardsPerPage)
+    })
 
-  nextButton.addEventListener('click', () => {
-    carousel.next(cardsPerPage)
-  })
+    nextButton.addEventListener('click', () => {
+      carousel.next(cardsPerPage)
+    })
 
-  mainContainer.appendChild(fragment)
+    mainContainer.appendChild(fragment)
+  }
 }
 
 function initSiema() {
