@@ -9,7 +9,7 @@ header {
     background-color: transparent;
   }
 
-  .container {
+  & > .container {
     @include make-container();
     padding-top: $spacer-y;
     padding-bottom: $spacer-y;
