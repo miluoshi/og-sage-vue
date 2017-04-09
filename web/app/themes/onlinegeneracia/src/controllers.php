@@ -27,6 +27,7 @@ function home_page_data($data) {
     $topics = get_terms([
         'taxonomy' => TAXONOMY_NAME,
         'hide_empty' => false,
+        'order' => 'DESC'
     ]);
 
     $data['topics_cards'] = [];
@@ -45,7 +46,7 @@ function home_page_data($data) {
             'name' => $topic->name,
             'url' => get_term_link($topic->slug, TAXONOMY_NAME),
             'cover_photo' => $cover_photo,
-            'description' => get_field('topic_description', $term_id),
+            'description' => wp_trim_words(get_field('topic_description', $term_id), 30),
             'placeholder_uri' => $placeholder_uri,
         ];
     }
