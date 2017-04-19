@@ -88,23 +88,6 @@ body.home {
     }
   }
 
-  .missing-topic-banner {
-    font-family: $font-family-sans-serif;
-    font-weight: 600;
-    font-size: $font-size-footer;
-    text-transform: uppercase;
-    color: $black;
-
-    @include media-breakpoint-down(sm) {
-      display: block;
-      @include make-container();
-      padding-top: $spacer-y;
-      padding-bottom: $spacer-y;
-      background-color: $brand-yellow;
-      text-align: center;
-    }
-  }
-
   @include media-breakpoint-up(md) {
     // body
     &:before,
