@@ -3,10 +3,6 @@ body.home {
   $card-padding-sm: $spacer*0.75;
   $card-padding-lg: $spacer*1.5;
 
-  .page-container {
-    margin-top: $header-height;
-  }
-
   .topic-card {
     display: block;
     min-height: 114px;

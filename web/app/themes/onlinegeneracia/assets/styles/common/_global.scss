@@ -27,3 +27,7 @@ hr {
   clear: both;
   margin: $spacer-y*1.5 0;
 }
+
+.page-container {
+  margin-top: $header-height;
+}
