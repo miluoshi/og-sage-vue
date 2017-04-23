@@ -126,8 +126,8 @@ ul.navigation-topics {
     .nav-header { overflow: auto; }
 
     .missing-topic-banner {
-      position: absolute;
-      bottom: 0;
+      /*position: absolute;
+      bottom: 0;*/
       width: 100%;
     }
   }
@@ -143,6 +143,7 @@ ul.navigation-topics {
   }
 
   #menu-main-navigation {
+    position: absolute;
     margin: 0;
 
     li {
