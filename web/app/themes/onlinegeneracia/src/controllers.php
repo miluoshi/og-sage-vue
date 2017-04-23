@@ -40,7 +40,6 @@ function home_page_data($data) {
             $cover_photo['height']
         );
 
-        // var_dump(get_field('topic_cover_photo', $term_id));
         $data['topics_cards'][] = (object)[
             'index' => $key + 1,
             'name' => $topic->name,
@@ -56,6 +55,21 @@ function home_page_data($data) {
     return $data;
 }
 
+function topic_page_data($data) {
+    $topic = get_queried_object();
+    $term_id = TAXONOMY_NAME . '_' . $topic->term_id;
+    $cover_photo = get_field('topic_cover_photo', $term_id);
+
+    $data['topic'] = (object)[
+        'name' => $topic->name,
+        'url' => get_term_link($topic->slug, TAXONOMY_NAME),
+        'cover_photo' => $cover_photo,
+        'description' => get_field('topic_description', $term_id),
+    ];
+
+    return $data;
+}
+
 // Use default_template_data for all page types
 add_filter('sage/template/page/data', 'App\\default_template_data');
 add_filter('sage/template/single/data', 'App\\default_template_data');
@@ -65,6 +79,9 @@ add_filter('sage/template/home/data', 'App\\default_template_data');
 
 // HOME page
 add_filter('sage/template/home/data', 'App\\home_page_data');
+
+// taxonomy TOPIC page
+add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
 
 // https://css-tricks.com/the-blur-up-technique-for-loading-background-images/
 function getBlurredPlaceholderUri($placeholderPath, $width, $height) {
