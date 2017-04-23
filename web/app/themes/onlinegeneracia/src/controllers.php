@@ -24,12 +24,9 @@ function default_template_data($data) {
 }
 
 function home_page_data($data) {
-    $topics = get_terms([
-        'taxonomy' => TAXONOMY_NAME,
-        'hide_empty' => false,
-        'order' => 'DESC'
-    ]);
+    $topics = get_topics();
 
+    $data['topics_count'] = sprintf('%02d', count($topics));
     $data['topics_cards'] = [];
     foreach ($topics as $key => $topic) {
         $term_id = TAXONOMY_NAME . '_' . $topic->term_id;
@@ -41,7 +38,7 @@ function home_page_data($data) {
         );
 
         $data['topics_cards'][] = (object)[
-            'index' => $key + 1,
+            'index' => sprintf('%02d', $key + 1),
             'name' => $topic->name,
             'url' => get_term_link($topic->slug, TAXONOMY_NAME),
             'cover_photo' => $cover_photo,
@@ -56,8 +53,10 @@ function home_page_data($data) {
 }
 
 function topic_page_data($data) {
+    $topics = get_topics();
     $topic = get_queried_object();
     $term_id = TAXONOMY_NAME . '_' . $topic->term_id;
+
     $cover_photo = get_field('topic_cover_photo', $term_id);
 
     $data['topic'] = (object)[
@@ -66,6 +65,9 @@ function topic_page_data($data) {
         'cover_photo' => $cover_photo,
         'description' => get_field('topic_description', $term_id),
     ];
+
+    $data['topics_count'] = sprintf('%02d', count($topics));
+    $data['topic_index'] = get_topic_index($topics, $topic->term_id);
 
     return $data;
 }
@@ -122,4 +124,24 @@ function getBlurredPlaceholderUri($placeholderPath, $width, $height) {
         . str_replace($toBeEncodedChars, $encodedChars, $svg_part_2);
 
     return 'data:image/svg+xml;charset=utf-8,' . $svgData;
+}
+
+function get_topics() {
+    return get_terms([
+        'taxonomy' => TAXONOMY_NAME,
+        'hide_empty' => false,
+        'orderby' => 'term_id',
+        'order' => 'ASC'
+    ]);
+}
+
+function get_topic_index($topics, $term_id) {
+    foreach ($topics as $key => $topic) {
+        if ($topic->term_id === $term_id) {
+            return sprintf('%02d', $key + 1);
+        }
+    }
+
+    // Default value if not found
+    return "01";
 }

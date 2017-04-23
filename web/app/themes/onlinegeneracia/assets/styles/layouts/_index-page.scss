@@ -28,27 +28,6 @@ body.home {
 
   .topic-index-wrap {
     position: absolute;
-    font-family: $font-family-serif;
-  }
-
-  .topics-length {
-    font-size: $font-size-xs;
-    position: relative;
-    top: -0.5rem;
-  }
-
-  .topic-index-slash {
-    color: $brand-yellow;
-    font-size: $font-size-lg;
-    position: relative;
-    left: -0.1rem;
-    top: -0.2rem;
-  }
-  .topic-index {
-    color: $brand-yellow;
-    font-size: $font-size-base;
-    position: relative;
-    left: -0.2rem;
   }
 
   .topic-info hr,

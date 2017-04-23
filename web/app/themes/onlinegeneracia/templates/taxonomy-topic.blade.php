@@ -8,6 +8,10 @@
   </section>
 
   <section class="main-wrap">
-
+    <div class="topic-index-wrap">
+      <span class="topics-length">{{ $topics_count }}</span>
+      <span class="topic-index-slash">/</span>
+      <span class="topic-index">@php(printf('%02d', $topic_index))</span>
+    </div>
   </section>
 @endsection
