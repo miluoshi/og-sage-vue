@@ -5,4 +5,23 @@ body.tax-topic {
     background-size: cover;
     background-position: center;
   }
+
+  .main-wrap .container {
+    @include make-container();
+  }
+
+  .topic-intro {
+    text-align: center;
+  }
+
+  .topic-index-wrap {
+    margin: $spacer-y*1.5 0;
+  }
+
+  .topic-description {
+    margin: $spacer-y*1.5 0;
+    color: $gray-lightest;
+    font-family: $font-family-serif;
+    font-style: italic;
+  }
 }

@@ -117,7 +117,7 @@ add_action('acf/init', function() {
                 'name' => 'description',
                 'type' => 'textarea',
                 'instructions' => '',
-                'new_lines' => 'br', // also 'wpautop' for paragraphs
+                'new_lines' => 'wpautop', // also 'wpautop' for paragraphs or 'br' for <br />
                 'required' => 0,
                 'rows' => 5,
                 'conditional_logic' => 0,

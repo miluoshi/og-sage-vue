@@ -63,6 +63,7 @@ function topic_page_data($data) {
         'name' => $topic->name,
         'url' => get_term_link($topic->slug, TAXONOMY_NAME),
         'cover_photo' => $cover_photo,
+        'subtitle' => get_field('topic_subtitle', $term_id),
         'description' => get_field('topic_description', $term_id),
     ];
 

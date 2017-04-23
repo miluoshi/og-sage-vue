@@ -135,7 +135,10 @@ body.home {
       width: 100%;
       padding: $card-padding-lg;
 
-      hr { display: block; }
+      hr {
+        display: block;
+        float: left;
+      }
     }
 
     .topic-name {
