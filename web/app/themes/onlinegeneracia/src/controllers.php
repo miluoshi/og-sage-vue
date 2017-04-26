@@ -65,8 +65,10 @@ function topic_page_data($data) {
         'cover_photo' => $cover_photo,
         'subtitle' => get_field('topic_subtitle', $term_id),
         'description' => get_field('topic_description', $term_id),
+        'articles' => get_field('articles', $term_id)
     ];
 
+    var_dump(have_rows('articles', $term_id));
     $data['topics_count'] = sprintf('%02d', count($topics));
     $data['topic_index'] = get_topic_index($topics, $topic->term_id);
 

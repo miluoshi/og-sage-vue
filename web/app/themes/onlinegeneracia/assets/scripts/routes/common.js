@@ -17,7 +17,7 @@ export default {
       WebFont.load({google: {
         families: [
           'PT+Serif:400,400i',
-          'Roboto:400,400i,700,900',
+          'Roboto:300,400,400i,700,900',
           'Roboto+Condensed:300,400,700',
         ],
         text: 'AÁÄBCČDĎDzDžEÉFGHChIÍJKLĹĽaáäbcčdďdzdžeéfghchiíjklĺľMNŇOÓÔPQRŔSŠTŤUÚVWXYÝZŽmnňoóôpqrŕsštťuúvwxyýzž.,/\\;[]<>?:"{}()-=+!@#$€%&*\'',

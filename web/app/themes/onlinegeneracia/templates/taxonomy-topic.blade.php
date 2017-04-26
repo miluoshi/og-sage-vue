@@ -26,5 +26,25 @@
       </div>
     </div>
 
+    @if (have_rows('articles'))
+      <div class="topic-section topic-articles container">
+        <h2>ČLÁNKY</h2>
+
+        @php($i = 0)
+        @while(have_rows('articles')) @php(the_row())
+          @php($article_id = sprintf('%02d', $i))
+
+          <article id="article-{{ $article_id }}">
+            <h3>@php(the_sub_field('title'))</h3>
+
+            <p>@php(the_sub_field('description'))</p>
+
+            <a href="@php(the_sub_field('link'))" class="article-link" target="_blank">ZOBRAZ VIAC</a>
+          </article>
+
+          @php($i++)
+        @endwhile
+      </div>
+    @endif
   </section>
 @endsection

@@ -9,6 +9,7 @@ $gray-lighter: #666;
 // Semantic color names
 $header-bg: $gray-lightest;
 $header-link-color: $white;
+$bg-lighter-gray: darken($white, 3%);
 
 // Grid breakpoints
 //
@@ -106,6 +107,8 @@ $font-size-xs:   .75rem;
 $font-size-footer: $font-size-sm;
 
 $font-size-h1: 2.25rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.125rem;
 
 // Custom variables
 $logo-height: 2.3125rem; // 37px
