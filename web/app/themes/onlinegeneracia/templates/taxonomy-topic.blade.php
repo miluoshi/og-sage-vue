@@ -72,6 +72,7 @@
         style="background-image: url('{{ $topic->video->thumbnail_url }}');"
       >
         <a class="video-play-button icon-play"></a>
+        <h3>{{ $topic->video->title }}</h3>
       </div>
       <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
     </div>

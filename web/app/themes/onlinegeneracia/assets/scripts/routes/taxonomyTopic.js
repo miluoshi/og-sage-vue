@@ -14,7 +14,7 @@ export default {
       // Remove after faded out
       setTimeout(() => {
         this.parentNode.removeChild(this)
-      }, 500);
+      }, 600);
 
     })
   },

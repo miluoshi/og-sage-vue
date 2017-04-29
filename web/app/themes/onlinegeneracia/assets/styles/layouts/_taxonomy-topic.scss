@@ -130,7 +130,18 @@ body.tax-topic {
       background-position: center;
       cursor: pointer;
       opacity: 1;
-      transition: opacity .5s ease-in-out;
+      transition: opacity .6s ease-in-out;
+
+      h3 {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 50%;
+        margin-top: 25px;
+        color: $white;
+        font-size: 1.875rem;
+        text-shadow: 0 0 5px rgba($black, .5);
+      }
 
       &.fadeOut {
         opacity: 0;
@@ -138,10 +149,12 @@ body.tax-topic {
 
       &:after {
         transition: background-color $transition-time ease-in-out;
+        background-color: rgba($black, 0.45);
+
       }
 
       &:hover:after {
-        background-color: rgba($black, 0.35);
+        background-color: rgba($black, 0.55);
       }
 
       &:hover .video-play-button {
@@ -160,7 +173,7 @@ body.tax-topic {
     width: $button-size;
     height: $button-size;
     margin-left: -$button-size/2;
-    margin-top: -$button-size/2;
+    margin-top: -$button-size/2 - 20px;
     border-radius: $button-size/2;
     border: 1px solid rgba($white, .3);
     background-color: rgba($white, .1);
