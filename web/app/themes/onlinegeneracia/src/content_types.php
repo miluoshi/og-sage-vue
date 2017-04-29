@@ -171,7 +171,7 @@ add_action('acf/init', function() {
                 'min' => 0,
                 'max' => 0,
                 'layout' => 'block',
-                'button_label' => '',
+                'button_label' => 'Pridaj odkaz na článok',
                 'sub_fields' => [
                     [
                         'key' => 'article_title',

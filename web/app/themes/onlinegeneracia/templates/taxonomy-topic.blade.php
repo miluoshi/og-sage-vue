@@ -8,7 +8,7 @@
   </section>
 
   <section class="main-wrap">
-    <div class="topic-intro container">
+    <div class="topic-section topic-intro container">
       <div class="topic-index-wrap">
         <span class="topics-length">{{ $topics_count }}</span>
         <span class="topic-index-slash">/</span>
@@ -17,7 +17,9 @@
 
       <h1 class="title">{{ $topic->name }}</h1>
 
-      <q>{{ $topic->subtitle }}</q>
+      @if ($topic->subtitle)
+        <q>{{ $topic->subtitle }}</q>
+      @endif
 
       <hr />
 
@@ -46,5 +48,24 @@
         @endwhile
       </div>
     @endif
+
+    @if (have_rows('topic_fun_links'))
+      <div class="topic-section topic-fun-links container">
+        <h2>ZÁBAVA</h2>
+
+        @while(have_rows('topic_fun_links')) @php(the_row())
+          <a class="fun-link"
+            href="@php(the_sub_field('fun_link_url'))"
+            target="_blank"
+          >
+              <h3>@php(the_sub_field('fun_link_title'))</h3>
+              <p>@php(the_sub_field('fun_link_description'))</p>
+              <span class="fun-link-arrow icon-right"></span>
+          </a>
+        @endwhile
+      </div>
+    @endif
+
+
   </section>
 @endsection

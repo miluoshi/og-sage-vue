@@ -38,7 +38,14 @@ hr {
   border: 0;
   background-color: $brand-yellow;
   clear: both;
-  margin: $spacer-y*1.5 auto;
+  margin: $spacer-lg auto;
+}
+
+p {
+  margin-bottom: 0;
+}
+p + p {
+  margin-top: 1rem;
 }
 
 q {
@@ -113,25 +120,26 @@ body.tax-topic .cover-photo {
 
 .topic-index-wrap {
   font-family: $font-family-serif;
+  font-size: 1rem;
 }
 
 .topics-length {
-  font-size: $font-size-xs;
+  font-size: 0.75em;
   position: relative;
-  top: -0.5rem;
+  top: -0.8em;
 }
 
 .topic-index-slash {
   color: $brand-yellow;
-  font-size: $font-size-lg;
+  font-size: 1.25em;
   position: relative;
-  left: -0.1rem;
-  top: -0.2rem;
+  left: -0.1em;
+  top: -0.2em;
 }
 
 .topic-index {
   color: $brand-yellow;
-  font-size: $font-size-base;
+  font-size: 1em;
   position: relative;
-  left: -0.2rem;
+  left: -0.2em;
 }

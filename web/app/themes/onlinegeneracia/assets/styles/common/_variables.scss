@@ -62,6 +62,9 @@ $grid-gutter-widths: (
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer:   1.25rem;
+$spacer-sm: $spacer*0.8;
+$spacer-lg: $spacer*1.5;
+$spacer-xl: $spacer*2.5;
 $spacer-x: $spacer;
 $spacer-y: $spacer;
 $spacers: (
