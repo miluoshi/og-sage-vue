@@ -29,6 +29,12 @@
       "css": "left",
       "code": 59392,
       "src": "typicons"
+    },
+    {
+      "uid": "cb13afd4722a849d48056540bb74c47e",
+      "css": "play",
+      "code": 59391,
+      "src": "entypo"
     }
   ]
 }

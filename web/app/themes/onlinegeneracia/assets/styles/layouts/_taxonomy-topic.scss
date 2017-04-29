@@ -107,4 +107,63 @@ body.tax-topic {
     display: block;
     width: 100%;
   }
+
+  .topic-video-wrap {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+
+    iframe, object, embed, .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-overlay {
+      z-index: 1;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+
+      &:after {
+        transition: background-color $transition-time ease-in-out;
+      }
+
+      &:hover:after {
+        background-color: rgba($black, 0.35);
+      }
+
+      &:hover .video-play-button {
+        color: $white;
+        background-color: rgba($white, .3);
+        border-color: rgba($white, .5);
+      }
+    }
+  }
+
+  .video-play-button {
+    $button-size: 70px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $button-size;
+    height: $button-size;
+    margin-left: -$button-size/2;
+    margin-top: -$button-size/2;
+    border-radius: $button-size/2;
+    border: 1px solid rgba($white, .3);
+    background-color: rgba($white, .1);
+    color: $white;
+    font-size: 3rem;
+    transition: all $transition-time ease-in-out;
+
+    &:before {
+      left: .2rem;
+      position: relative;
+    }
+  }
 }

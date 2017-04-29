@@ -100,7 +100,8 @@ q:after {
 }
 
 body.home .topic-card,
-body.tax-topic .cover-photo {
+body.tax-topic .cover-photo,
+body.tax-topic .video-overlay {
   // For semi-transparent overlay in :after
   position: relative;
   z-index: 1;
