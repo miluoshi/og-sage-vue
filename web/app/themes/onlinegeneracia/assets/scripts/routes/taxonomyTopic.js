@@ -1,4 +1,4 @@
-
+import {addClass} from '../util/classNames'
 
 export default {
   init() {
@@ -9,7 +9,13 @@ export default {
       let videoIframe = document.getElementById('video')
 
       videoIframe.setAttribute('src', src)
-      this.parentNode.removeChild(this)
+
+      addClass(this, 'fadeOut')
+      // Remove after faded out
+      setTimeout(() => {
+        this.parentNode.removeChild(this)
+      }, 500);
+
     })
   },
   finalize() {},

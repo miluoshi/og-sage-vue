@@ -114,6 +114,7 @@ body.tax-topic {
     overflow: hidden;
     max-width: 100%;
     height: auto;
+    background-color: $black;
 
     iframe, object, embed, .video-overlay {
       position: absolute;
@@ -128,6 +129,12 @@ body.tax-topic {
       background-size: cover;
       background-position: center;
       cursor: pointer;
+      opacity: 1;
+      transition: opacity .5s ease-in-out;
+
+      &.fadeOut {
+        opacity: 0;
+      }
 
       &:after {
         transition: background-color $transition-time ease-in-out;

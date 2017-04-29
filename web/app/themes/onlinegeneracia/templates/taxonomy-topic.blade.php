@@ -66,7 +66,6 @@
       </div>
     @endif
 
-    <h3>{{ $topic->video->title }}</h3>
     <div class="topic-video-wrap">
       <div class="video-overlay"
         data-video-src="{{ $topic->video->src }}"
@@ -75,7 +74,6 @@
         <a class="video-play-button icon-play"></a>
       </div>
       <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
-      {{-- {!! $topic->video->iframe !!} --}}
     </div>
 
 
