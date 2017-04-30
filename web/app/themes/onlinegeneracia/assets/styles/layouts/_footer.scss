@@ -1,3 +1,26 @@
 footer {
 
 }
+
+.footer-right-wrap {
+  overflow: auto;
+  padding: $spacer-lg $spacer-lg;
+  text-align: center;
+
+  .nav-social-icons {
+    display: inline-block;
+    float: initial;
+  }
+
+  & > * + * {
+    margin-top: $spacer-sm;
+  }
+}
+
+small.project-authors {
+  display: block;
+  color: $gray-lightest;
+  font-size: $font-size-sm;
+  font-weight: 300;
+}
+

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.home-base')
 
 @section('content')
   {{-- @include('partials.page-header') --}}

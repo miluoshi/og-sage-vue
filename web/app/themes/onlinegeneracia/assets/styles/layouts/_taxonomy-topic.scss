@@ -205,6 +205,8 @@ body.tax-topic {
 
   .next-topic > a {
     @include overlay-after(rgba(darken($brand-yellow, 5%), .8), rgba($brand-yellow, .5));
+
+    label { font-weight: 400; }
   }
 
 
