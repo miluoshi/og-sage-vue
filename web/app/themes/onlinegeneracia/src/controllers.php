@@ -76,6 +76,8 @@ function topic_page_data($data) {
 
     $data['topics_count'] = sprintf('%02d', count($topics));
     $data['topic_index'] = get_topic_index($topics, $topic->term_id);
+    $data['previous'] = get_previous_topic($topics, $topic->term_id);
+    $data['next'] = get_next_topic($topics, $topic->term_id);
 
     return $data;
 }
@@ -152,6 +154,51 @@ function get_topic_index($topics, $term_id) {
 
     // Default value if not found
     return "01";
+}
+
+function get_previous_topic($topics, $term_id) {
+    $this_topic_key = 0;
+
+    foreach ($topics as $key => $topic) {
+        if ($topic->term_id === $term_id) {
+            $this_topic_key = $key;
+        }
+    }
+
+    $previous_topic = $this_topic_key === 0
+        ? null
+        : $topics[$this_topic_key - 1];
+
+    return $previous_topic
+        ? (object)[
+            'title' => $previous_topic->name,
+            'url' => get_term_link($previous_topic->slug, TAXONOMY_NAME),
+            'cover_photo' => get_field('topic_cover_photo', TAXONOMY_NAME . '_' . $previous_topic->term_id)
+        ]
+        : null;
+}
+
+function get_next_topic($topics, $term_id) {
+    $this_topic_key = count($topics);
+    $last_key = count($topics) - 1;
+
+    foreach ($topics as $key => $topic) {
+        if ($topic->term_id === $term_id) {
+            $this_topic_key = $key;
+        }
+    }
+
+    $next_topic = $this_topic_key === $last_key
+        ? null
+        : $topics[$this_topic_key + 1];
+
+    return $next_topic
+        ? (object)[
+            'title' => $next_topic->name,
+            'url' => get_term_link($next_topic->slug, TAXONOMY_NAME),
+            'cover_photo' => get_field('topic_cover_photo', TAXONOMY_NAME . '_' . $next_topic->term_id)
+        ]
+        : null;
 }
 
 function get_video_src($iframe) {
