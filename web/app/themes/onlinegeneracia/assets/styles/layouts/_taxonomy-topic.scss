@@ -186,8 +186,7 @@ body.tax-topic {
       display: block;
       padding: $spacer-y $spacer-lg;
       background-size: cover;
-
-
+      min-height: 200px;
     }
 
     label {
@@ -200,6 +199,8 @@ body.tax-topic {
 
     h4 {
       margin-bottom: 0;
+      position: absolute;
+      bottom: 1.25rem;
     }
   }
 
