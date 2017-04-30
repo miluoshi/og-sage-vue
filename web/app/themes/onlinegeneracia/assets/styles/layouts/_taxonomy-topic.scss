@@ -110,7 +110,8 @@ body.tax-topic {
 
   .topic-video-wrap {
     position: relative;
-    padding-bottom: 56.25%;
+    // padding-bottom: 56.25%; // 16:9
+    padding-bottom: 62.5%;
     overflow: hidden;
     max-width: 100%;
     height: auto;
@@ -138,8 +139,9 @@ body.tax-topic {
         text-align: center;
         top: 50%;
         margin-top: 25px;
+        padding: 0 $spacer-lg;
         color: $white;
-        font-size: 1.875rem;
+        font-size: $font-size-h2;
         text-shadow: 0 0 5px rgba($black, .5);
       }
 
@@ -183,6 +185,7 @@ body.tax-topic {
 
     &:before {
       left: .2rem;
+      top: .6rem;
       position: relative;
     }
   }
