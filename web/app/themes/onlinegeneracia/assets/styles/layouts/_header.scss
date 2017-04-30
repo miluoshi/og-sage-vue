@@ -5,10 +5,6 @@ header {
   z-index: 3;
   background-color: $header-bg;
 
-  @include media-breakpoint-up(md) {
-    background-color: transparent;
-  }
-
   & > .container {
     @include make-container();
     padding-top: $spacer-y;

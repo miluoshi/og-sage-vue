@@ -8,7 +8,7 @@
       ></div>
     </div>
 
-    <div class="main-content-content">
+    <div class="main-content-wrap">
       <div class="topic-section topic-intro container">
         <div class="topic-index-wrap">
           <span class="topics-length">{{ $topics_count }}</span>

@@ -30,6 +30,7 @@ body.tax-topic {
   }
 
   .topic-section {
+    overflow: auto;
     padding-top: 3rem;
     padding-bottom: 3rem;
 
@@ -77,16 +78,26 @@ body.tax-topic {
   }
 
   .fun-link {
-    $fun-link-size: 280px;
+    $fun-link-size-sm: 280px;
+    $fun-link-size-lg: 240px;
     display: block;
     position: relative;
     width: 100%;
-    max-width: $fun-link-size;
-    min-height: $fun-link-size;
+    max-width: $fun-link-size-sm;
+    min-height: $fun-link-size-sm;
     margin: 0 auto;
     padding: $spacer-lg;
     background-color: $brand-yellow;
     text-align: center;
+
+    @include media-breakpoint-up(md) {
+      width: $fun-link-size-lg;
+      height: $fun-link-size-lg;
+      min-height: auto;
+      overflow: hidden;
+      float: left;
+      border: 1px solid $white;
+    }
 
     &:hover {
       text-decoration: none;
@@ -117,6 +128,11 @@ body.tax-topic {
     height: auto;
     background-color: $black;
 
+    @include media-breakpoint-up(md) {
+      padding-bottom: 0;
+      height: 720px;
+    }
+
     iframe, object, embed, .video-overlay {
       position: absolute;
       top: 0;
@@ -145,6 +161,12 @@ body.tax-topic {
         color: $white;
         font-size: $font-size-h2;
         text-shadow: 0 0 5px rgba($black, .5);
+
+        @include media-breakpoint-up(md) {
+          font-size: $font-size-h1;
+          padding-left: 10%;
+          padding-right: 10%;
+        }
       }
 
       &.fadeOut {
@@ -186,7 +208,7 @@ body.tax-topic {
       display: block;
       padding: $spacer-y $spacer-lg;
       background-size: cover;
-      min-height: 200px;
+      min-height: 160px;
     }
 
     label {
@@ -194,13 +216,17 @@ body.tax-topic {
       font-weight: 300;
       font-size: $font-size-sm;
       text-transform: uppercase;
-      margin-bottom: $spacer-xl;
     }
 
     h4 {
       margin-bottom: 0;
       position: absolute;
       bottom: 1.25rem;
+
+      @include media-breakpoint-up(md) {
+        width: calc(100% - #{$spacer-lg*2});
+
+      }
     }
   }
 
@@ -216,5 +242,41 @@ body.tax-topic {
     color: $white;
   }
 
+  @include media-breakpoint-up(md) {
+    .page-container {
+      overflow: auto;
+    }
 
+    .main-wrap {
+      overflow: auto;
+    }
+
+    .cover-photo-wrap,
+    .main-content-wrap {
+      width: 50%;
+    }
+
+    .cover-photo-wrap {
+      position: fixed;
+    }
+
+    .main-content-wrap {
+      float: right;
+    }
+
+    .adjacent-topic-links {
+      width: 50%;
+      float: right;
+
+      .prev-topic {
+        width: 50%;
+        float: left;
+      }
+
+      .next-topic {
+        width: 50%;
+        float: right;
+      }
+    }
+  }
 }

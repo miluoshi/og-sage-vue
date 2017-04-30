@@ -74,6 +74,10 @@ body.home {
       opacity: 0;
     }
 
+    header {
+      background-color: transparent;
+    }
+
     &.topic-unloading:after {
       opacity: 0 !important;
     }
