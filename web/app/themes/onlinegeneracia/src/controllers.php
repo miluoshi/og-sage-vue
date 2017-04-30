@@ -58,7 +58,6 @@ function topic_page_data($data) {
     $term_id = TAXONOMY_NAME . '_' . $topic->term_id;
     $cover_photo = get_field('topic_cover_photo', $term_id);
     $video_iframe = get_field('topic_video', $term_id);
-    $video_metadata = get_video_metadata($video_iframe);
 
     $data['topic'] = (object)[
         'name' => $topic->name,
@@ -66,13 +65,18 @@ function topic_page_data($data) {
         'cover_photo' => $cover_photo,
         'subtitle' => get_field('topic_subtitle', $term_id),
         'description' => get_field('topic_description', $term_id),
-        'video' => (object)[
+        'video' => null
+    ];
+
+    $video_metadata = get_video_metadata($video_iframe);
+    if ($video_metadata) {
+        $data['topic']->video =  (object)[
             'title' => $video_metadata->title,
             'thumbnail_url' => $video_metadata->thumbnail_url,
             'src' => $video_metadata->url . '&autoplay=1',
             'iframe' => $video_iframe,
-        ]
-    ];
+        ];
+    }
 
     $data['topics_count'] = sprintf('%02d', count($topics));
     $data['topic_index'] = get_topic_index($topics, $topic->term_id);
@@ -203,17 +207,23 @@ function get_next_topic($topics, $term_id) {
 
 function get_video_src($iframe) {
     preg_match('/src="(.+?)"/', $iframe, $matches);
-    $src = $matches[1];
+    $src = count($matches) > 1
+        ? $matches[1]
+        : '';
 
     return $src;
 }
 
 function get_video_metadata($iframe) {
     $video_src = get_video_src($iframe);
-    $url = 'https://noembed.com/embed?url=' . $video_src;
+    $data = null;
 
-    $json = file_get_contents($url);
-    $data = json_decode($json);
+    if (strlen($video_src) > 0) {
+        $url = 'https://noembed.com/embed?url=' . $video_src;
+
+        $json = file_get_contents($url);
+        $data = json_decode($json);
+    }
 
     return $data;
 }

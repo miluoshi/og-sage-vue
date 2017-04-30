@@ -132,6 +132,8 @@ body.tax-topic {
       cursor: pointer;
       opacity: 1;
       transition: opacity .6s ease-in-out;
+      @include overlay-after(rgba($black, 0.45), rgba($black, 0.55));
+      position: absolute;
 
       h3 {
         position: absolute;
@@ -147,16 +149,6 @@ body.tax-topic {
 
       &.fadeOut {
         opacity: 0;
-      }
-
-      &:after {
-        transition: background-color $transition-time ease-in-out;
-        background-color: rgba($black, 0.45);
-
-      }
-
-      &:hover:after {
-        background-color: rgba($black, 0.55);
       }
 
       &:hover .video-play-button {
@@ -185,8 +177,41 @@ body.tax-topic {
 
     &:before {
       left: .2rem;
-      top: .6rem;
       position: relative;
     }
   }
+
+  .adjacent-topic {
+    & > a {
+      display: block;
+      padding: $spacer-y $spacer-lg;
+      background-size: cover;
+
+
+    }
+
+    label {
+      font-family: $font-family-sans-condensed;
+      font-weight: 300;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+      margin-bottom: $spacer-xl;
+    }
+
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  .next-topic > a {
+    @include overlay-after(rgba(darken($brand-yellow, 5%), .8), rgba($brand-yellow, .5));
+  }
+
+
+  .prev-topic > a {
+    @include overlay-after(rgba($black, .8), rgba($black, .6));
+    color: $white;
+  }
+
+
 }

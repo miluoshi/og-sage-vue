@@ -1,3 +1,29 @@
+@mixin overlay-after($color, $hover-color: false) {
+  // For semi-transparent overlay in :after
+  position: relative;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: background-color $transition-time ease-in-out;
+    background-color: $color;
+  }
+
+  @if $hover-color {
+    &:hover:after {
+      background-color: $hover-color;
+    }
+  }
+
+}
+
 html { height: 100%; }
 
 body {
@@ -39,6 +65,10 @@ hr {
   background-color: $brand-yellow;
   clear: both;
   margin: $spacer-lg auto;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 p {
@@ -100,23 +130,8 @@ q:after {
 }
 
 body.home .topic-card,
-body.tax-topic .cover-photo,
-body.tax-topic .video-overlay {
-  // For semi-transparent overlay in :after
-  position: relative;
-  z-index: 1;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-color: rgba($black, 0.25);
-  }
+body.tax-topic .cover-photo {
+  @include overlay-after(rgba($black, 0.25));
 }
 
 .topic-index-wrap {

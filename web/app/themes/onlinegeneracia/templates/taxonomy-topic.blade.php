@@ -69,30 +69,38 @@
     </div>
   </section>
 
-  <section class="topic-video-wrap">
-    <div class="video-overlay"
-      data-video-src="{{ $topic->video->src }}"
-      style="background-image: url('{{ $topic->video->thumbnail_url }}');"
-    >
-      <a class="video-play-button icon-play"></a>
-      <h3>{{ $topic->video->title }}</h3>
-    </div>
-    <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
-  </section>
+  @if ($topic->video)
+    <section class="topic-video-wrap">
+      <div class="video-overlay"
+        data-video-src="{{ $topic->video->src }}"
+        style="background-image: url('{{ $topic->video->thumbnail_url }}');"
+      >
+        <a class="video-play-button icon-play"></a>
+        <h3>{{ $topic->video->title }}</h3>
+      </div>
+      <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
+    </section>
+  @endif
 
   <section class="adjacent-topic-links">
-    @if ($previous)
-      <div class="prev-topic adjacent-topic">
-        <a href="{{ $previous->url }}">
-
+    @if ($next)
+      <div class="next-topic adjacent-topic">
+        <a href="{{ $next->url }}"
+          style="background-image: url({{ $next->cover_photo['sizes']['medium_large'] }});"
+        >
+          <label>Ďalšia téma</label>
+          <h4>{{ $next->title }}</h4>
         </a>
       </div>
     @endif
 
-    @if ($next)
-      <div class="next-topic adjacent-topic">
-        <a href="{{ $next->url }}">
-
+    @if ($previous)
+      <div class="prev-topic adjacent-topic">
+        <a href="{{ $previous->url }}"
+          style="background-image: url({{ $previous->cover_photo['sizes']['medium_large'] }});"
+        >
+          <label>Predchádzajúca téma</label>
+          <h4>{{ $previous->title }}</h4>
         </a>
       </div>
     @endif
