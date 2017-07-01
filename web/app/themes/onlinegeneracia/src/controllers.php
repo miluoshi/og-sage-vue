@@ -2,8 +2,8 @@
 
 namespace App;
 
-define('App\TAXONOMY_NAME',  'topic');
-define('App\WEB_ROOT_DIR', ABSPATH . '..');
+define(__NAMESPACE__ . '\TAXONOMY_NAME',  'topic');
+define(__NAMESPACE__ . '\WEB_ROOT_DIR', ABSPATH . '..');
 
 function default_template_data($data) {
     $data['topics'] = get_terms([
@@ -82,6 +82,10 @@ function topic_page_data($data) {
     $data['topic_index'] = get_topic_index($topics, $topic->term_id);
     $data['previous'] = get_previous_topic($topics, $topic->term_id);
     $data['next'] = get_next_topic($topics, $topic->term_id);
+
+    $data['articles'] = get_posts([
+        'topic' => $topic->slug,
+    ]);
 
     return $data;
 }
@@ -207,11 +211,10 @@ function get_next_topic($topics, $term_id) {
 
 function get_video_src($iframe) {
     preg_match('/src="(.+?)"/', $iframe, $matches);
-    $src = count($matches) > 1
+
+    return count($matches) > 1
         ? $matches[1]
         : '';
-
-    return $src;
 }
 
 function get_video_metadata($iframe) {

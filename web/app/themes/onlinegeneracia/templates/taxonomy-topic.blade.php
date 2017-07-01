@@ -29,24 +29,23 @@
         </div>
       </div>
 
-      @if (have_rows('articles'))
+      @if (count($articles) > 0)
         <div class="topic-section topic-articles container">
           <h2>ČLÁNKY</h2>
 
-          @php($i = 0)
-          @while(have_rows('articles')) @php(the_row())
+          @foreach ($articles as $i => $article)
             @php($article_id = sprintf('%02d', $i))
+            @php(setup_postdata($article))
 
             <article id="article-{{ $article_id }}">
-              <h3>@php(the_sub_field('title'))</h3>
+              <h3>{{ the_title() }}</h3>
 
-              <p>@php(the_sub_field('description'))</p>
+              <p>{{ the_excerpt() }}</p>
 
-              <a href="@php(the_sub_field('link'))" class="article-link" target="_blank">ZOBRAZ VIAC</a>
+              <a href="{{ the_permalink() }}" class="article-link">ZOBRAZ VIAC</a>
             </article>
-
-            @php($i++)
-          @endwhile
+          @endforeach
+          @php(wp_reset_postdata())
         </div>
       @endif
 
