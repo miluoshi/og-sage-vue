@@ -51,7 +51,7 @@
 
       @if (have_rows('topic_links'))
         <div class="topic-section topic-links container">
-          <h2>ZÁBAVA</h2>
+          <h2>ĎALŠIE ODKAZY</h2>
 
           @while(have_rows('topic_links')) @php(the_row())
             <a class="topic-link"
