@@ -49,18 +49,18 @@
         </div>
       @endif
 
-      @if (have_rows('topic_fun_links'))
-        <div class="topic-section topic-fun-links container">
+      @if (have_rows('topic_links'))
+        <div class="topic-section topic-links container">
           <h2>ZÁBAVA</h2>
 
-          @while(have_rows('topic_fun_links')) @php(the_row())
-            <a class="fun-link"
-              href="@php(the_sub_field('fun_link_url'))"
+          @while(have_rows('topic_links')) @php(the_row())
+            <a class="topic-link"
+              href="@php(the_sub_field('link_url'))"
               target="_blank"
             >
-                <h3>@php(the_sub_field('fun_link_title'))</h3>
-                <p>@php(the_sub_field('fun_link_description'))</p>
-                <span class="fun-link-arrow icon-right"></span>
+                <h3>@php(the_sub_field('link_title'))</h3>
+                <p>@php(the_sub_field('link_description'))</p>
+                <span class="topic-link-arrow icon-right"></span>
             </a>
           @endwhile
         </div>
@@ -75,7 +75,12 @@
         style="background-image: url('{{ $topic->video->thumbnail_url }}');"
       >
         <a class="video-play-button icon-play"></a>
-        <h3>{{ $topic->video->title }}</h3>
+
+        <div class="topic-video-details">
+          <h3>{{ $topic->video->title }}</h3>
+          {!! $topic->video->description !!}
+        </div>
+
       </div>
       <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
     </section>

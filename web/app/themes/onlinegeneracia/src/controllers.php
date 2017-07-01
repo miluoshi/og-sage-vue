@@ -71,7 +71,8 @@ function topic_page_data($data) {
     $video_metadata = get_video_metadata($video_iframe);
     if ($video_metadata) {
         $data['topic']->video =  (object)[
-            'title' => $video_metadata->title,
+            'title' => get_field('video_title', $term_id),
+            'description' => get_field('video_description', $term_id),
             'thumbnail_url' => $video_metadata->thumbnail_url,
             'src' => $video_metadata->url . '&autoplay=1',
             'iframe' => $video_iframe,
