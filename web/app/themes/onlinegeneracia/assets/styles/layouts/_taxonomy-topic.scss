@@ -79,13 +79,14 @@ body.tax-topic {
 
   .topic-link {
     $topic-link-size-sm: 280px;
+    $topic-link-size-md: 200px;
     $topic-link-size-lg: 240px;
     display: block;
     position: relative;
     width: 100%;
     max-width: $topic-link-size-sm;
     min-height: $topic-link-size-sm;
-    margin: 0 auto;
+    margin: 2px auto;
     padding: $spacer-lg;
     background-color: $brand-yellow;
     text-align: center;
@@ -96,12 +97,22 @@ body.tax-topic {
     }
 
     @include media-breakpoint-up(md) {
-      width: $topic-link-size-lg;
-      height: $topic-link-size-lg;
+      width: $topic-link-size-sm;
+      height: $topic-link-size-md;
+      float: left;
+      margin: 2px;
       min-height: auto;
       overflow: hidden;
-      float: left;
       border: 1px solid $white;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: $topic-link-size-md;
+    }
+
+    @include media-breakpoint-up(xl) {
+      width: $topic-link-size-lg;
+      height: $topic-link-size-lg;
     }
 
     &:hover {
