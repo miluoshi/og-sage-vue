@@ -1,0 +1,28 @@
+body:not(.home) {
+  .main-wrap .container {
+    @include make-container();
+  }
+
+  article {
+    h3 {
+      color: $gray-lightest;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      font-weight: 300;
+    }
+  }
+
+  .description {
+    color: $gray-lightest;
+    font-family: $font-family-serif;
+    font-style: italic;
+  }
+
+  .description,
+  .cover-image,
+  .entry-content {
+    margin-top: $spacer-lg;
+  }
+}

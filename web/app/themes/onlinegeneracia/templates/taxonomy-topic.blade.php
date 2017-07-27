@@ -24,7 +24,7 @@
 
         <hr />
 
-        <div class="topic-description">
+        <div class="description">
           {!! $topic->description !!}
         </div>
       </div>

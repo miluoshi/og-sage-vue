@@ -9,10 +9,6 @@ body.tax-topic {
     background-position: center;
   }
 
-  .main-wrap .container {
-    @include make-container();
-  }
-
   .topic-intro {
     text-align: center;
   }
@@ -20,13 +16,6 @@ body.tax-topic {
   .topic-index-wrap {
     margin-bottom: $spacer-lg;
     font-size: 1.25rem;
-  }
-
-  .topic-description {
-    margin-top: $spacer-lg;
-    color: $gray-lightest;
-    font-family: $font-family-serif;
-    font-style: italic;
   }
 
   .topic-section {
@@ -48,15 +37,6 @@ body.tax-topic {
   }
 
   article {
-    h3 {
-      color: $gray-lightest;
-    }
-
-    p {
-      font-size: $font-size-sm;
-      font-weight: 300;
-    }
-
     a.article-link {
       display: inline-block;
       font-size: $font-size-xs;
@@ -175,6 +155,10 @@ body.tax-topic {
 
     @include media-breakpoint-up(md) {
       padding-bottom: 0;
+      height: 540px;
+    }
+
+    @include media-breakpoint-up(lg) {
       height: 720px;
     }
 
