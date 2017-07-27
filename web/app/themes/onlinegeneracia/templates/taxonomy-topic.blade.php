@@ -49,20 +49,20 @@
         </div>
       @endif
 
-      @if (have_rows('topic_links'))
+      @if (count($topic->links) > 0)
         <div class="topic-section topic-links container">
           <h2>ĎALŠIE ODKAZY</h2>
 
-          @while(have_rows('topic_links')) @php(the_row())
+          @foreach ($topic->links as $linkObj)
+            @php($link = $linkObj['link'])
             <a class="topic-link"
-              href="@php(the_sub_field('link_url'))"
-              target="_blank"
+              href="{{ $link['url'] }}"
+              target="{{ $link['target'] }}"
             >
-                <h3>@php(the_sub_field('link_title'))</h3>
-                <p>@php(the_sub_field('link_description'))</p>
+                <h3>{{ $link['title'] }}</h3>
                 <span class="topic-link-arrow icon-right"></span>
             </a>
-          @endwhile
+          @endforeach
         </div>
       @endif
     </div>

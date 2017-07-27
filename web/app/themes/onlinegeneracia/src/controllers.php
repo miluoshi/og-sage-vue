@@ -65,6 +65,7 @@ function topic_page_data($data) {
         'cover_photo' => $cover_photo,
         'subtitle' => get_field('topic_subtitle', $term_id),
         'description' => get_field('topic_description', $term_id),
+        'links' => get_field('topic_links', $term_id),
         'video' => null
     ];
 
@@ -88,6 +89,7 @@ function topic_page_data($data) {
         'topic' => $topic->slug,
     ]);
 
+    var_dump('<br><br><br><pre>', get_field('topic_links', $term_id), '</pre>');
     return $data;
 }
 
