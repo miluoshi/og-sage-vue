@@ -1,0 +1,27 @@
+body.single article.post {
+  .container {
+    @include make-container();
+    max-width: map-get($grid-breakpoints, md);
+  }
+
+  header {
+    text-align: center;
+  }
+
+  h1 {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .cover-image {
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      padding: 0 $spacer-lg;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
