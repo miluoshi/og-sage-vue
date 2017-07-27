@@ -318,8 +318,26 @@ add_action('acf/init', function() {
         'title' => 'Text článku',
         'fields' => [
             [
+                'key' => 'article_quote',
+                'label' => 'Citát',
+                'name' => 'quote',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => [
+                    'width' => '100',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => 5,
+                'new_lines' => 'br',
+            ], [
                 'key' => 'article_layout_block',
-                'label' => 'Odstavec',
+                'label' => 'Blok odstavcov',
                 'name' => 'layout_block',
                 'type' => 'flexible_content',
                 'instructions' => 'Je možné vybrať buď blok s textom alebo s videom.
