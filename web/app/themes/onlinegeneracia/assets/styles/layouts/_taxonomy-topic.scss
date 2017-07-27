@@ -89,6 +89,11 @@ body.tax-topic {
     padding: $spacer-lg;
     background-color: $brand-yellow;
     text-align: center;
+    transition: background-color $transition-time ease-in-out;
+
+    &:hover {
+      background-color: rgba($brand-yellow, .6);
+    }
 
     @include media-breakpoint-up(md) {
       width: $topic-link-size-lg;
