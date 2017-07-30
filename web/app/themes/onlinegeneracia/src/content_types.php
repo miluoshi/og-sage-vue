@@ -361,7 +361,7 @@ add_action('acf/init', function() {
                         'display' => 'block',
                         'sub_fields' => [
                             [
-                                'key' => 'field_58a9d3e142603',
+                                'key' => 'field_layout',
                                 'label' => 'Rozloženie obsahu',
                                 'name' => 'layout',
                                 'type' => 'select',
@@ -374,11 +374,11 @@ add_action('acf/init', function() {
                                     'id' => '',
                                 ],
                                 'choices' => [
-                                    1 => '1 stĺpec textu (+ volitelný obrázok napravo)',
-                                    2 => '2 stĺpce textu',
+                                    '1_col' => '1 stĺpec textu (+ volitelný obrázok napravo)',
+                                    '2_cols' => '2 stĺpce textu',
                                 ],
                                 'default_value' => [
-                                    0 => 1,
+                                    0 => '1_col',
                                 ],
                                 'allow_null' => 0,
                                 'multiple' => 0,
@@ -454,9 +454,9 @@ add_action('acf/init', function() {
                                 'conditional_logic' => [
                                     [
                                         [
-                                            'field' => 'field_58a9d3e142603',
+                                            'field' => 'field_layout',
                                             'operator' => '==',
-                                            'value' => '2',
+                                            'value' => '2_cols',
                                         ],
                                     ],
                                 ],
@@ -481,9 +481,9 @@ add_action('acf/init', function() {
                                 'conditional_logic' => [
                                     [
                                         [
-                                            'field' => 'field_58a9d3e142603',
+                                            'field' => 'field_layout',
                                             'operator' => '==',
-                                            'value' => '1',
+                                            'value' => '1_col',
                                         ],
                                     ],
                                 ],
