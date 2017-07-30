@@ -5,6 +5,22 @@ namespace App;
 define(__NAMESPACE__ . '\TAXONOMY_NAME',  'topic');
 define(__NAMESPACE__ . '\WEB_ROOT_DIR', ABSPATH . '..');
 
+// Use default_template_data for all page types
+add_filter('sage/template/page/data', 'App\\default_template_data');
+add_filter('sage/template/single/data', 'App\\default_template_data');
+add_filter('sage/template/tax-topic/data', 'App\\default_template_data');
+add_filter('sage/template/error404/data', 'App\\default_template_data');
+add_filter('sage/template/home/data', 'App\\default_template_data');
+
+// HOME page
+add_filter('sage/template/home/data', 'App\\home_page_data');
+
+// taxonomy TOPIC page
+add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
+
+// Single POST
+add_filter('sage/template/single/data', 'App\\single_data');
+
 function default_template_data($data) {
     $data['topics'] = get_terms([
         'taxonomy' => TAXONOMY_NAME,
@@ -92,18 +108,36 @@ function topic_page_data($data) {
     return $data;
 }
 
-// Use default_template_data for all page types
-add_filter('sage/template/page/data', 'App\\default_template_data');
-add_filter('sage/template/single/data', 'App\\default_template_data');
-add_filter('sage/template/tax-topic/data', 'App\\default_template_data');
-add_filter('sage/template/error404/data', 'App\\default_template_data');
-add_filter('sage/template/home/data', 'App\\default_template_data');
+function single_data($data) {
+    global $post;
 
-// HOME page
-add_filter('sage/template/home/data', 'App\\home_page_data');
+    $data['featured_img'] = (object)[
+        'thumbnail_url' => get_the_post_thumbnail_url($post, 'full'),
+        'srcset' => wp_get_attachment_image_srcset(get_post_thumbnail_id(), 'full'),
+        'sizes' => wp_get_attachment_image_sizes(get_post_thumbnail_id()),
+    ];
 
-// taxonomy TOPIC page
-add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
+    $data['get_image_data'] = function($img, $size) {
+        $id = $img['id'];
+        $src = wp_get_attachment_image_src($id, $size)[0];
+        $image_meta = wp_get_attachment_metadata($id);
+        $sizes = [
+            $image_meta['sizes'][$size]['width'],
+            $image_meta['sizes'][$size]['height'],
+        ];
+
+        $srcset = wp_calculate_image_srcset( $sizes, $src, $image_meta, $id );
+        $sizes = wp_calculate_image_sizes( $sizes, $src, $image_meta, $id );
+
+        return [
+            'src' => $src,
+            'srcset' => $srcset,
+            'sizes' => $sizes,
+        ];
+    }; // Function
+
+    return $data;
+}
 
 // https://css-tricks.com/the-blur-up-technique-for-loading-background-images/
 function getBlurredPlaceholderUri($placeholderPath, $width, $height) {

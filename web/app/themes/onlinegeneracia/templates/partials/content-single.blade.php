@@ -23,19 +23,63 @@
 
   @if(has_post_thumbnail())
     <div class="cover-image">
-      <img src="{{ the_post_thumbnail_url('small') }}"
-        srcset="{{ wp_get_attachment_image_srcset(get_post_thumbnail_id()) }}"
-        sizes="{{ wp_get_attachment_image_sizes(get_post_thumbnail_id()) }}"
+      <img src="{{ $featured_img->thumbnail_url }}"
+        srcset="{{ $featured_img->srcset }}"
+        sizes="(max-width: 992px) 100vw, 992px"
         alt=""
-      >
+      />
     </div>
   @endif
 
   <div class="entry-content container">
-    @php(the_content())
+    @if(have_rows('layout_block'))
+      @while(have_rows('layout_block')) @php(the_row())
+        <div class="layout-row">
+          @if(get_row_layout() === 'text')
+            {{-- fields: layout, subtitle, quote, column_1, column_2, image --}}
+            <div class="pre-text-column">
+              <h3>{{ the_sub_field('subtitle') }}</h3>
+            </div>
+
+            @if(get_sub_field('layout') === '1_col')
+              @if(get_sub_field('image'))
+                <div class="text-column">
+                  {{ the_sub_field('column_1') }}
+                </div>
+                <div class="text-column image-column">
+                  @php($img_data = $get_image_data(get_sub_field('image'), 'thumbnail'))
+                  <img src="{{ $img_data['src'] }}"
+                    srcset="{{ $img_data['srcset'] }}"
+                    sizes="(max-width: 767px) 100vw, 320px"
+                  />
+                </div>
+              @else
+                <div class="text-column-merged">
+                  {{ the_sub_field('column_1') }}
+                </div>
+              @endif
+            @else {{-- 2 columns --}}
+              <div class="text-column">
+                {{ the_sub_field('column_1') }}
+              </div>
+              <div class="text-column">
+                {{ the_sub_field('column_2') }}
+              </div>
+            @endif
+          @endif
+
+          @if(get_row_layout() === 'video')
+            {{-- fields: video_title, video --}}
+            VIDEO
+          @endif
+        </div>
+      @endwhile
+    @else
+      @php(the_content())
+    @endif
   </div>
 
-  <footer>
+  {{-- <footer>
     {!! wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
-  </footer>
+  </footer> --}}
 </article>
