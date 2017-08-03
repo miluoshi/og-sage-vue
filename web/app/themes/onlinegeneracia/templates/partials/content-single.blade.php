@@ -66,6 +66,12 @@
                 {{ the_sub_field('column_2') }}
               </div>
             @endif
+
+            @if(get_sub_field('quote'))
+              <div class="pre-text-column quote-column">
+                <q>{{ the_sub_field('quote') }}</q>
+              </div>
+            @endif
           @endif
 
           @if(get_row_layout() === 'video')
