@@ -94,6 +94,7 @@ add_action('init', function () {
             'add_new_item' => 'Pridaj novú tému'
         ],
         'hierarchical' => false,
+        'show_admin_column' => true,
         'rewrite' => ['slug' => 'tema']
     ]);
 });
