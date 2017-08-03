@@ -4,17 +4,6 @@ namespace App;
 
 require_once __DIR__.'/setup_taxonomy_topic.php';
 
-// Remove editor for posts
-add_action('admin_init', function() {
-  remove_post_type_support('post', 'editor');
-});
-
-// Move post excerpt field to the top of the form
-add_action( 'admin_menu', function() {
-   remove_meta_box('postexcerpt', 'post', 'normal' );
-   add_meta_box('postexcerpt', __('Excerpt'), 'post_excerpt_meta_box', 'post', 'normal', 'high');
-});
-
 // Options page
 acf_add_options_sub_page([
     'page_title' => 'Nastavenia stránky',

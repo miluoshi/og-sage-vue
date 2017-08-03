@@ -188,6 +188,21 @@ add_action('after_setup_theme', function () {
 });
 
 /**
+ * Remove main content editor for posts
+ **/
+add_action('admin_init', function() {
+  remove_post_type_support('post', 'editor');
+});
+
+/**
+ * Move post excerpt field to the top of the form
+ **/
+add_action( 'admin_menu', function() {
+   remove_meta_box('postexcerpt', 'post', 'normal' );
+   add_meta_box('postexcerpt', __('Excerpt'), 'post_excerpt_meta_box', 'post', 'normal', 'high');
+});
+
+/**
  * Init config
  */
 sage()->bindIf('config', Config::class, true);
