@@ -57,7 +57,8 @@
     "roots/wp-password-bcrypt": "1.0.0",
     "roots/soil": "^3.7",
     "wpackagist-plugin/regenerate-thumbnails": "^2.2",
-    "advanced-custom-fields/advanced-custom-fields-pro": "*"
+    "advanced-custom-fields/advanced-custom-fields-pro": "*",
+    "wpackagist-plugin/intuitive-custom-post-order": "^3.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"
