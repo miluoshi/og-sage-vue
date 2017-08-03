@@ -34,8 +34,12 @@
           <h2>ČLÁNKY</h2>
 
           @foreach ($articles as $i => $article)
-            @php($article_id = sprintf('%02d', $i))
-            @php(setup_postdata($article))
+            @php
+              $article_id = sprintf('%02d', $i);
+              global $post;
+              $post = $article;
+              setup_postdata($article);
+            @endphp
 
             <article id="article-{{ $article_id }}">
               <h3>{{ the_title() }}</h3>
