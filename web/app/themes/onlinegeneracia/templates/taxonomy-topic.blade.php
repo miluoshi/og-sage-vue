@@ -53,7 +53,7 @@
         </div>
       @endif
 
-      @if (count($topic->links) > 0)
+      @if ($topic->links)
         <div class="topic-section topic-links container">
           <h2>ĎALŠIE ODKAZY</h2>
 
