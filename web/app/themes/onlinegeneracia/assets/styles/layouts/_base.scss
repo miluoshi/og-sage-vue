@@ -8,9 +8,49 @@ body:not(.home) {
       color: $gray-lightest;
     }
 
-    p {
+    p, li {
       font-size: $font-size-sm;
       font-weight: 300;
+    }
+
+    ul, ol {
+      list-style-type: none;
+    }
+
+    ul {
+      padding-left: 25px;
+
+      & > li {
+        text-indent: -25px;
+      }
+
+      & > li:before {
+        content: '—';
+        color: $brand-yellow;
+        margin-right: 12px;
+        font-weight: 600;
+      }
+    }
+
+    ol {
+      padding-left: 29px;
+      counter-reset: numList;
+
+      & > li {
+        text-indent: -29px;
+      }
+
+      & > li:before {
+        counter-increment: numList;
+        content: counter(numList);
+        margin-right: 10px;
+        border-radius: 999px;
+        background-color: $brand-yellow;
+        padding: 2px 6px;
+        font-family: $font-family-sans-condensed;
+        line-height: 1rem;
+        font-size: 12px;
+      }
     }
   }
 
