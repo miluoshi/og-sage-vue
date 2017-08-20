@@ -189,10 +189,19 @@ body.home {
       }
     }
 
-    .missing-topic-banner {
+    .missing-topic-banner, .footer-right-wrap {
       display: inline-block;
       color: $brand-yellow;
       line-height: $footer-lg-height;
+    }
+
+    .logo-nds {
+      height: $footer-lg-height;
+      width: 280px;
+      background-image: url('../../images/logo-nds.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
 
     footer > .container {

@@ -10,5 +10,9 @@
         {{ $missing_topic['text'] }}
       </a>
     @endif
+
+    <div class="footer-right-wrap">
+        <div class="logo-nds"></div>
+    </div>
   </div>
 </footer>

@@ -20,7 +20,6 @@ small.project-authors {
   font-weight: 300;
 }
 
-
 @include media-breakpoint-up(md) {
   $footer-line-height: 2.25rem;
 
@@ -36,23 +35,23 @@ small.project-authors {
       &:hover { text-decoration: underline; }
     }
 
-    .footer-right-wrap {
-      display: inline-block;
-      float: right;
-      padding: 0;
-    }
-
     .nav-social-icons {
       line-height: $footer-line-height;
       padding: 0;
       float: right;
     }
+  }
 
-    .project-authors {
-      display: inline-block;
-      margin-top: 0;
-      line-height: $footer-line-height;
-      margin-right: $spacer;
-    }
+  .footer-right-wrap {
+    display: inline-block;
+    float: right;
+    padding: 0;
+  }
+
+  .project-authors {
+    display: inline-block;
+    margin-top: 0;
+    line-height: $footer-line-height;
+    margin-right: $spacer;
   }
 }
