@@ -2,11 +2,9 @@ import $ from 'jquery'
 
 export default {
   init() {
-    var map = null;
-
     window.addEventListener('load', () => {
       $('.acf-map').each(function () {
-        map = new_map( $(this) );
+        new_map( $(this) );
       });
     })
   },
