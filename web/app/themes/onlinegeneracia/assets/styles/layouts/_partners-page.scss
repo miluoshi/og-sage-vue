@@ -1,0 +1,27 @@
+body.partneri {
+  .partner-list {
+    margin-left: -$spacer-sm;
+    margin-right: -$spacer-sm;
+
+    .partner {
+      display: block;
+      overflow: auto;
+      float: left;
+      height: 180px;
+      width: 100%;
+      padding: $spacer-sm;
+
+      @include media-breakpoint-up(md) {
+        width: 33.33%;
+      }
+    }
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

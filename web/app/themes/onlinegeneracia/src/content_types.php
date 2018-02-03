@@ -4,6 +4,7 @@ namespace App;
 
 require_once __DIR__.'/setup_taxonomy_topic.php';
 require_once __DIR__.'/setup_contact_page.php';
+require_once __DIR__.'/setup_partners_page.php';
 
 // Options page
 acf_add_options_sub_page([
