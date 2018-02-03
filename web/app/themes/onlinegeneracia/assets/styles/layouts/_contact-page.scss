@@ -1,5 +1,6 @@
 body.page.kontakt {
   .acf-map {
+    max-width: 1200px;
     @include media-breakpoint-up(lg) {
       float: right;
       width: 65%;

@@ -1,1 +1,22 @@
 
+body:not(.home) .page-container > .container {
+  @include make-container();
+}
+
+body.page {
+  position: relative;
+
+  .page-container {
+    padding-bottom: $footer-height-small;
+
+    @include media-breakpoint-up(md) {
+      padding-bottom: $footer-height-normal;
+    }
+  }
+
+  footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}

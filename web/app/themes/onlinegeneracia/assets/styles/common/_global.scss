@@ -27,6 +27,7 @@
 html { height: 100%; }
 
 body {
+  min-height: 100%;
   @include media-breakpoint-down(sm) {
     min-height: 100%;
   }
@@ -78,6 +79,11 @@ p + p {
   margin-top: 1rem;
 }
 
+p {
+  font-family: $font-family-serif;
+  line-height: 1.5rem;
+}
+
 q {
   quotes: "“" "”" "‘" "’";
   display: inline-block;
@@ -109,7 +115,7 @@ q:after {
 
 
 .page-container {
-  margin-top: $header-height;
+  padding-top: $header-height;
 }
 
 .missing-topic-banner {

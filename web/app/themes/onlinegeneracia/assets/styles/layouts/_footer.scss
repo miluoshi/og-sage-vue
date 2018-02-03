@@ -1,6 +1,8 @@
 .footer-right-wrap {
   overflow: auto;
-  padding: $spacer-lg $spacer-lg;
+  @include make-container();
+  padding-top: $spacer-y;
+  padding-bottom: $spacer-y;
   text-align: center;
 
   .nav-social-icons {
@@ -9,14 +11,18 @@
   }
 
   & > * + * {
-    margin-top: $spacer-sm;
+    // margin-top: $spacer-sm;
   }
 }
 
 small.project-authors {
+  display: block;
   color: $gray-lightest;
   font-size: $font-size-sm;
   font-weight: 300;
+  @include media-breakpoint-up(md) {
+    display: inline-block;
+  }
 }
 
 @include media-breakpoint-up(md) {

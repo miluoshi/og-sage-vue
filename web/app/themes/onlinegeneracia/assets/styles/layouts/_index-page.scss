@@ -209,6 +209,10 @@ body.home {
     }
 
   }
+
+  @include media-breakpoint-down(sm) {
+    .footer-right-wrap { display: none; }
+  }
 }
 
 .btn-carousel-prev,

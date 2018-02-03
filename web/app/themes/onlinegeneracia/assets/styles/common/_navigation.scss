@@ -67,12 +67,16 @@ label.navigation-toggle-close {
   padding: .35rem 0;
 
   ul {
+    display: block;
     overflow: auto;
     margin-bottom: 0;
   }
 
   li {
-    float: left;
+    display: inline-block;
+    @include media-breakpoint-up(md) {
+      float: left;
+    }
   }
 
   li + li {
