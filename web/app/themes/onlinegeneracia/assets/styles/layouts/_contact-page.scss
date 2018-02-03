@@ -1,0 +1,15 @@
+body.page.kontakt {
+  .acf-map {
+    @include media-breakpoint-up(lg) {
+      float: right;
+      width: 65%;
+    }
+  }
+
+  .addresses {
+    @include media-breakpoint-up(lg) {
+      float: left;
+      width: 35%;
+    }
+  }
+}

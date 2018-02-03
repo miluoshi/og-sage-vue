@@ -2,7 +2,8 @@
   "root": true,
   "extends": "eslint:recommended",
   "globals": {
-    "wp": true
+    "wp": true,
+    "google": false
   },
   "env": {
     "node": true,
@@ -22,7 +23,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "import",
+    "import"
   ],
   "settings": {
     "import/core-modules": [],
@@ -32,13 +33,6 @@
     ]
   },
   "rules": {
-    "comma-dangle": ["error", {
-      "arrays": "always-multiline",
-      "objects": "always-multiline",
-      "imports": "always-multiline",
-      "exports": "always-multiline",
-      "functions": "ignore"
-    }],
     "no-console": "warn",
     "no-unused-vars": "warn"
   }

@@ -22,3 +22,4 @@ vendor/*
 
 # My custom folder
 assets/*
+*.code-workspace
