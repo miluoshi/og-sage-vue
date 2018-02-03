@@ -4,9 +4,7 @@
 
     @if ($missing_topic['link'] && $missing_topic['text'])
       <a class="missing-topic-banner"
-        href="{{ $missing_topic['link'] }}"
-        target="_blank"
-      >
+        href="{{ $missing_topic['link'] }}">
         {{ $missing_topic['text'] }}
       </a>
     @endif
