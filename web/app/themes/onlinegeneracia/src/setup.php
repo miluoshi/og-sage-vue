@@ -12,7 +12,10 @@ use Roots\Sage\Template\BladeProvider;
  * Theme assets
  */
 add_action('wp_enqueue_scripts', function () {
+    $google_maps_script_url = "https://maps.googleapis.com/maps/api/js?key=" . env('GOOGLE_MAPS_API_KEY');
+
     wp_enqueue_style('sage/main.css', asset_path('styles/main.css'), false, null);
+    wp_enqueue_script('sage/googlemaps', $google_maps_script_url, false, null, true);
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), false, null, true);
 }, 100);
 
@@ -200,6 +203,13 @@ add_action('admin_init', function() {
 add_action( 'admin_menu', function() {
    remove_meta_box('postexcerpt', 'post', 'normal' );
    add_meta_box('postexcerpt', __('Excerpt'), 'post_excerpt_meta_box', 'post', 'normal', 'high');
+});
+
+/**
+ * Register Google maps api key to display map on contact page
+ */
+add_action('acf/init', function() {
+    acf_update_setting('google_api_key', env('GOOGLE_MAPS_API_KEY'));
 });
 
 /**

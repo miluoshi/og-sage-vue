@@ -15,6 +15,9 @@ add_filter('sage/template/home/data', 'App\\default_template_data');
 // HOME page
 add_filter('sage/template/home/data', 'App\\home_page_data');
 
+// CONTACT page
+add_filter('sage/template/kontakt/data', 'App\\contact_page_data');
+
 // taxonomy TOPIC page
 add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
 
@@ -64,6 +67,15 @@ function home_page_data($data) {
     }
 
     $data['image_sizes'] = ['small', 'medium', 'large', 'original'];
+
+    return $data;
+}
+
+function contact_page_data($data) {
+    $data['map'] = get_field('map');
+    $data['map_height'] = get_field('map_height');
+    $data['map_zoom'] = get_field_object('map')['zoom'];
+    $data['addresses'] = get_field('addresses');
 
     return $data;
 }
