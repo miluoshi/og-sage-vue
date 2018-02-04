@@ -1,9 +1,10 @@
 
 body:not(.home) .page-container > .container {
   @include make-container();
+  max-width: 1440px;
 }
 
-body.page {
+body.page, body.tax-topic {
   position: relative;
 
   .page-container {
