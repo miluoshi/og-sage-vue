@@ -17,6 +17,7 @@
               {{-- @php(var_dump(get_sub_field('logo'))) --}}
                 <div class="partner">
                   <a href="{{ the_sub_field('link') }}"
+                    target="_blank"
                     style="background-image: url('{{ get_sub_field('logo')['sizes']['medium'] }}');">
                   </a>
                 </div>
