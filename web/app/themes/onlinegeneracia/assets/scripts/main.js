@@ -10,6 +10,7 @@ import Router from './util/Router'
 import common from './routes/common'
 import home from './routes/home'
 import kontakt from './routes/kontakt'
+import novinky from './routes/novinky'
 import taxTopic from './routes/taxonomyTopic'
 import documentReady from './util/documentReady'
 
@@ -24,6 +25,8 @@ const routes = new Router({
   home,
   /** Contact page */
   kontakt,
+  /** Novinky page */
+  novinky,
   /** About Us page, note the change from about-us to aboutUs. */
   taxTopic,
 });

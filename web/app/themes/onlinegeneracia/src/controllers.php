@@ -18,6 +18,9 @@ add_filter('sage/template/home/data', 'App\\home_page_data');
 // CONTACT page
 add_filter('sage/template/kontakt/data', 'App\\contact_page_data');
 
+// NOVINKY page
+add_filter('sage/template/novinky/data', 'App\\novinky_page_data');
+
 // taxonomy TOPIC page
 add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
 
@@ -25,10 +28,7 @@ add_filter('sage/template/tax-topic/data', 'App\\topic_page_data');
 add_filter('sage/template/single/data', 'App\\single_data');
 
 function default_template_data($data) {
-    $data['topics'] = get_terms([
-        'taxonomy' => TAXONOMY_NAME,
-        'hide_empty' => false,
-    ]);
+    $data['topics'] = get_topics();
 
     $data['missing_topic'] = [
         'link' => get_field('footer_nenasli_ste_temu_link', 'option'),
@@ -116,6 +116,25 @@ function topic_page_data($data) {
     $data['articles'] = get_posts([
         'topic' => $topic->slug,
     ]);
+
+    return $data;
+}
+
+function novinky_page_data($data) {
+    $data['topics_list'] = [];
+    foreach ($data['topics'] as $key => $topic) {
+        $term_id = TAXONOMY_NAME . '_' . $topic->term_id;
+
+        $posts = get_posts([
+            'topic' => $topic->slug,
+        ]);
+
+        $data['topics_list'][] = (object)[
+            'name' => $topic->name,
+            'url' => get_term_link($topic->slug, TAXONOMY_NAME),
+            'posts' => $posts
+        ];
+    }
 
     return $data;
 }
