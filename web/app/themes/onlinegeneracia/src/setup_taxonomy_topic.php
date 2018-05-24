@@ -182,9 +182,9 @@ add_action('acf/init', function() {
                 'button_label' => 'Pridaj odkaz',
                 'sub_fields' => [
                     [
-                        'key' => 'link',
+                        'key' => 'topic_link',
                         'label' => '',
-                        'name' => 'link',
+                        'name' => 'topic_link',
                         'type' => 'link',
                         'instructions' => '',
                         'required' => 0,

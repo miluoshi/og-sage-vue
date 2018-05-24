@@ -58,7 +58,7 @@
           <h2>ĎALŠIE ODKAZY</h2>
 
           @foreach ($topic->links as $linkObj)
-            @php($link = $linkObj['link'])
+            @php($link = $linkObj['topic_link'])
             <a class="topic-link"
               href="{{ $link['url'] }}"
               target="{{ $link['target'] }}"
