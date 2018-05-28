@@ -76,8 +76,12 @@
 
           @if(get_row_layout() === 'video')
             {{-- fields: video_title, video --}}
-            <h3>{{ the_sub_field('video_title') }}</h3>
-            {{ the_sub_field('video') }}
+            <div class="pre-text-column">
+              <h3>{{ the_sub_field('video_title') }}</h3>
+            </div>
+            <div class="text-column-merged">
+              {{ the_sub_field('video') }}
+            </div>
           @endif
         </div>
       @endwhile
