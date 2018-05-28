@@ -79,7 +79,7 @@
             <div class="pre-text-column">
               <h3>{{ the_sub_field('video_title') }}</h3>
             </div>
-            <div class="text-column-merged">
+            <div class="text-column-merged embed-container">
               {{ the_sub_field('video') }}
             </div>
           @endif
