@@ -76,7 +76,8 @@
 
           @if(get_row_layout() === 'video')
             {{-- fields: video_title, video --}}
-            VIDEO
+            <h3>{{ the_sub_field('video_title') }}</h3>
+            {{ the_sub_field('video') }}
           @endif
         </div>
       @endwhile
